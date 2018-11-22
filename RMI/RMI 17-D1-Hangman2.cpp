@@ -1,3 +1,14 @@
+/*
+    RMI 17-D1-Hangman2
+
+    - N * K <= 3 * 10^4 restriction makes us think at an approach which can guarantee a fast result for both extreme cases
+    - So, I went for an O(N * K * min(N, K)) approach, which will run whatever approach is faster
+    - For N * N * K, there is a simple approach, by just comparing every pair of distinct strings and see if their distance is at most 2
+    - For N * K * K, we will hash each string, in order to have O(1) answer for the hash value of the string, assuming we eliminate 1 or 2 characters.
+    - After computing the hash value for each string, we will erase from all the strings the same characters and find whether some strings are equal, by using the hash value
+    
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 int t;
