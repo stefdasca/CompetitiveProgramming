@@ -1,3 +1,15 @@
+/*
+                Infoarena countfefete(https://www.infoarena.ro/problema/countfefete)
+                
+It is obvious that we will solve the problem separately for each bit. We will fix the minimum value that will appear in a certain subtree
+and using disjoint set union we will find for each node with minimal value the numbers of subsets which have that fixed value as minimal
+which were also not computed from before and we will keep those answers for future computations. Despite the fact that this approach has
+O(N log valMAX) running time, it is not good enough because iterating through edges in a vector is very slow. That's why I used another 
+optimization, I ran the algorithm just once, but I was computing the answers for all bits at once, in a certain state. Even though this
+algorithm has the same complexity as the previous one, it will be much faster because we won't iterate through std::vector lists
+
+*/
+
 #include<bits/stdc++.h>
 #define mod 1000000007
 using namespace std;
