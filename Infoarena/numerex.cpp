@@ -1,3 +1,15 @@
+/*
+                            Infoarena numerex - https://www.infoarena.ro/problema/numerex
+        (Given an array of size n, which at the beginning has all elements equal with 0, operate some updates and answer to the query
+described by the statement)
+
+        Despite the fact that this problem is a classical application of lazy propagation method in segment tree, I have used sqrt 
+decomposition instead, approached based by a trick I have recently learnt. I grouped numbers in buckets of sqrt(N) each and queries in
+buckets of sqrt(M) each, so that I had update in O(sqrtN) and query in O(sqrtN). Once at sqrt(M) queries, I rebuild all the array based on
+the previous sqrt(M) queries.
+
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("numerex.in");
