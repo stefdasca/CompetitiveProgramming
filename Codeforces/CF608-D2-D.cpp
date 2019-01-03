@@ -17,10 +17,10 @@ int main()
             {
                 dp[j][j + L - 1] = 1 + dp[j + 1][j + L - 1];
                 if (v[j] == v[j + 1])
-					dp[j][j + L - 1] = min(1 + dp[j + 2][j + L - 1], dp[j][j + L - 1]);
-				for (int poz = j + 2; poz <= j + L - 1; poz++)
-					if (v[j] == v[poz])
-						dp[j][j + L - 1] = min(dp[j + 1][poz - 1] + dp[poz + 1][j + L - 1], dp[j][j + L - 1]);
+			dp[j][j + L - 1] = min(1 + dp[j + 2][j + L - 1], dp[j][j + L - 1]);
+		for (int poz = j + 2; poz <= j + L - 1; poz++)
+			if (v[j] == v[poz])
+				dp[j][j + L - 1] = min(dp[j + 1][poz - 1] + dp[poz + 1][j + L - 1], dp[j][j + L - 1]);
             }
     cout << dp[1][n] << '\n';
     return 0;
