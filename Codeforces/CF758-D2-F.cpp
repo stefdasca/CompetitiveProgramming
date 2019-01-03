@@ -8,6 +8,7 @@ long long p[10000002];
 long long ratioo[10000002];
 bool gg[10000002];
 bool prim[10000002];
+/// do sieve to find for each number from 1 to r the denominator of the ratio
 void ciur(int sf)
 {
     ratioo[1] = 1;
@@ -43,6 +44,7 @@ int main()
         return 0;
     }
     p[1] = 1;
+    /// find i^(n-1), where a^b = a * a * a * ... * a(b times)
     for(int i = 2; i <= r; ++i)
     {
         long long pr = 1;
