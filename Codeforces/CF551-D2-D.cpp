@@ -1,4 +1,4 @@
-/// Never do the same mistake twireze
+/// Never do the same mistake twice
 
 #include<bits/stdc++.h>
 #pragma GCC optimize("O3")
