@@ -1,5 +1,5 @@
 /*
-            Baltic 07-Sequence
+                                   Baltic 07-Sequence
 
     After observing some example test cases, one can reduce the problem to finding the sum between
 all the local maximals
