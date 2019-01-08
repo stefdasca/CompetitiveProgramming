@@ -1,8 +1,8 @@
 /*
                                    Baltic 07-Sequence
 
-    After observing some example test cases, one can reduce the problem to finding the sum between
-all the local maximals
+    After observing some test cases on paper, one can reduce the problem to a simple
+greedy problem, namely finding the sum between all the local maximals 
 
 */
 #include<bits/stdc++.h>
