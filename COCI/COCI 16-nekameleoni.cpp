@@ -1,5 +1,5 @@
 /*
-                COCI 15-nekameleoni
+                COCI 16-nekameleoni
 
     We can solve the problem by storing the necessary data in a fully binary tree(we can't use segment tree or any other similar
 data structure because memory limit doesn't allow us to do so).
