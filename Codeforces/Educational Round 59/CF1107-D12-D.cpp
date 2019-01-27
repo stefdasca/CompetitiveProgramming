@@ -79,7 +79,7 @@ int main()
             mx = i;
     for(int i = divisors.size() - 1; i >= 1; --i)
     {
-        if(mx > divisors[i])
+        if(mx < divisors[i])
             continue;
         if(good(divisors[i]))
         {
