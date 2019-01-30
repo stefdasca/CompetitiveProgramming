@@ -1,4 +1,6 @@
 /*
+                           Balkan 17-Monsters
+   
     * First compute prefix sums for each column
     * We will fix 2 lines which are the starting and the end line
     * For each pair of lines, we will do a 2-pointer like approach, where we will compute for each element in matrix the number of rectangles
