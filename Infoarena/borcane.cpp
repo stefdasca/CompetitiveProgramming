@@ -1,3 +1,13 @@
+/*      
+            Infoarena borcane(https://www.infoarena.ro/problema/borcane)
+
+    // google translate does a good job for translating this problem
+
+    We can use a greedy approach to solve this problem. Sort the elements, then group the elements in groups of 3 and put the candies to
+the last jar.
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("borcane.in");
