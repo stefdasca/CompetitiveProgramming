@@ -1,3 +1,13 @@
+/*
+        Infoarena sabin(https://www.infoarena.ro/problema/sabin)
+        
+    "Given n lists of strings, each of them having size k and each string has size p, and m queries, find for each query whether there
+exists a list from the n lists with similarity grade equal to a certain value x"
+
+    We can keep all possible concatenations of strings and find for each query the answer using maps. There are anti-hash tests for this
+problem
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("sabin.in");
