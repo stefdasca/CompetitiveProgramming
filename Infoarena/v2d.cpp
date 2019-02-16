@@ -1,3 +1,12 @@
+/*
+            Infoarena v2d(https://www.infoarena.ro/problema/v2d)
+            
+     Translation works fine enough here too :) 
+     
+     We can reduce this problem to DP. We will run the DP 4 times for each day, starting from each corner of the matrix.
+     The complexity will be O(n^2 T), but one has to be quite careful because the time limit is quite tight.
+     
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("v2d.in");
