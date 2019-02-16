@@ -1,3 +1,12 @@
+/*
+        Infoarena nrsec(https://www.infoarena.ro/problema/nrsec)
+   
+   "Given an array of n elements and a value K, find the minimum integer x such that there are at least K continuous subarrays with 
+sum not bigger than x"
+   
+   We can use binary search and binary indexed tree to find the solution in O(n log n log valmax), where valmax is the maximum subarray sum
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("nrsec.in");
