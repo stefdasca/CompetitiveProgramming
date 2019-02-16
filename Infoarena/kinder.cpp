@@ -1,4 +1,15 @@
+/*
+            Infoarena kinder(https://www.infoarena.ro/problema/kinder)
 
+    "Given a array of n elements and m queries of 3 types, answer to each query of type 3
+    Type 1: c t p q The child c receives q eggs of type t and color p
+    Type 2: c t The child c takes all eggs of type t which are his own and dye it in the opposite color (0 in 1 and 1 in 0)
+    Type 3: a b p x : Find the xth tastiest egg which belongs to kids in range [a, b] of color p"
+    
+    We can solve this problem using segment tree and tries. We will keep in each node a trie and solve each of the given operations in 
+O(log^2 n)
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("kinder.in");
