@@ -1,3 +1,15 @@
+/*
+            Infoarena mexc(https://www.infoarena.ro/problema/mexc)
+            
+    Translation looks fine too(short statements are usually translated well enough)
+    
+    Firstly, sort the elements in the matrix.
+    Then, we can use DSU on matrix for this problem. We will keep in each set the number of squares with a value bigger than the current value
+and we introduce in sets squares with value bigger than (current value - D). We can answer for each element equal to the current value
+when we ended introducing of the new values.
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("mexc.in");
