@@ -1,3 +1,12 @@
+/*
+    mean: given a array of n elements, where at each step you take 2 consecutive elements, 
+find the integer part of their arithmetical mean and put that mean instead of those 2 elements. 
+    find the max avg one can get by optimally doing the n-1 operations
+
+    Classical dp problem, dp[i][j] = max average number if we solved the segment [i....j]
+
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 int n;
