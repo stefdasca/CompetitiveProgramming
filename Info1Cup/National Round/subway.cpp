@@ -1,3 +1,11 @@
+/*
+        subway : given a number k, construct a tree with as few nodes as possible, 
+such that the sum of the subtree sizes for all nodes is k. subtree size = how many nodes have as 
+ancestor a certain node(node i is not considered ancestor for node i)
+
+    Classical constructive problem, one has to create a chain where we will attach some leaves in an optimal way
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 long long k;
