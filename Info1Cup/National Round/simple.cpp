@@ -1,3 +1,11 @@
+/*
+
+    simple : given a array of n elements and q queries(type 0, add a to every element in range [x, y], 
+ type 1, find the max odd number and the min even number from range [x, y]), answer to the queries of type 1)
+    
+    Classical lazy propagation task
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int n, q;
