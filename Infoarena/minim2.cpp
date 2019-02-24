@@ -1,3 +1,15 @@
+/*
+        Infoarena minim2(https://www.infoarena.ro/problema/minim2)
+        
+    "given a array of n elements and 3 real numbers a, b, r, use as few operations as possible in order to make the sum of the n elements
+less than r. for each position, one can multiply the value from array by a once and by b infinitely times(a, b < 1.000)"
+
+
+    We can binary search the difference between each step of multiplication x - x * k, where x is the initial value and k is either a, or b
+Running the algorithm until the difference between the possible solutions is less than 1e-6 is enough for this problem
+
+*/
+
 #include<bits/stdc++.h>
 #define Nmax 100010
 using namespace std;
