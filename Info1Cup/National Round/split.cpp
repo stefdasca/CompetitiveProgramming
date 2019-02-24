@@ -1,3 +1,10 @@
+/*
+
+    info1cup split : given a number n(n <= 1e18, it has even digits), split it in 2 halves
+    
+    The task is self explanatory, just implement what the statement says
+
+*/ 
 #include<bits/stdc++.h>
 using namespace std;
 long long n;
