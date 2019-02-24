@@ -1,3 +1,14 @@
+/*
+            Infoarena troll(https://www.infoarena.ro/problema/troll)
+            
+     "given n ranges of type (a, b, C), where range i has the ends [ai, bi] and value Ci, find the maximum number of ranges which are not 
+ overlapping, such that at least one of them contains a range with Ci such that Ci is maximal among Ci from the array"
+ 
+    At first, we can sort the intervals with increasing a, then we can use dp to solve this problem. dp[i][j] = the max number of intervals, 
+such that the last range used is the jth, and i = 1 if we already got a range with maximal value, and 0 otherwise. I implemented the dp using
+fenwick tree, for fast transition between states. 
+       
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("troll.in");
