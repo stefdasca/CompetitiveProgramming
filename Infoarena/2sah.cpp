@@ -1,3 +1,13 @@
+/*
+        Infoarena 2sah(https://www.infoarena.ro/problema/2sah)
+  
+    "given a (2n+1) * (2n+1) chess table where on square (1, n+1) there is 1 grain and for each square (i, j), the number of grains there
+is the sum of number of grains from the squares (i-1, j-1) + (i-1, j) + (i-1, j+1), find the number of grains on line i and the number of
+grains one can get if one starts from (1, k) and at each step he goes from (L, C) to (L+1, C+2), as long as he doesn't leave the table"
+
+    One can use modpow for the first task and matrix exponentiation for the second task
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("2sah.in");
