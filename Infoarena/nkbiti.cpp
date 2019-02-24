@@ -1,3 +1,13 @@
+/*
+            Infoarena nkbiti(https://www.infoarena.ro/problema/nkbiti)
+            
+    "Find how many binary strings of length n have at most k consecutive zeroes"
+    
+    Let's define dp[i] = the number of strings such that the last one is on position i. It is obvious that 
+dp[i] = dp[i-1] + dp[i-2] + .... + dp[i - k], and we can use matrix exponentiation for solving in an efficient 
+way this problem
+
+*/
 #include<fstream>
 #include<algorithm>
 using namespace std;
