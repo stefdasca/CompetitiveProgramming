@@ -1,3 +1,10 @@
+/*
+    treasure: given a string of n letters and a number k, implement the following algorithm: 
+find the first substring with length k which has all letters equal, remove it and concatenate the remaining halves. (n, k <= 2e5)
+    
+    This task is similar to https://codeforces.com/contest/1104/problem/B
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 int n, k;
