@@ -1,3 +1,14 @@
+/*
+    infoarena cifra4(https://www.infoarena.ro/problema/cifra4)
+    
+    "Given 2 integers n and c, we will write the list of the natural numbers which don't have digit c, in increasing order, we have to find:
+         1. the nth number in the array
+         2. given another 2 integers x and y, find the number of removed numbers between x and y"
+  
+    This is a classical digit dp problem, which also involves binary search for the first part of the problem. At each step of the digit dp
+we will keep dp[i][0/1] = number of integers of i digits such that they have(or don't have) digit c
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cifra4.in");
