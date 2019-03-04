@@ -1,3 +1,15 @@
+/*
+        infoarena marceland(https://www.infoarena.ro/problema/marceland)
+    
+    "Given a n*m matrix, put as few fountains(coded by '@') such that all the people inside the matrix(coded with 'M') can get to at 
+ least 1 fountain without passing through locked squares(coded by '#'). One can replace sandy squares(coded with '.') to accomplish this
+ Print -1 if there is no solution"
+
+    This problem can be solved with BFS from the each starting point which is not visited, then for each connected component, we will
+ put 0 or 1 fountains, depending on whether a fountain already exists there, or a person exists there or not. If we can't put a fountain
+ in some component, we will print -1. else, we print the new matrix. 
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("marceland.in");
