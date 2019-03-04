@@ -1,3 +1,11 @@
+/*
+        infoarena cerc3(https://www.infoarena.ro/problema/cerc3)
+        
+   "Given n circles in the cartesian plane, find the minimum number of segments which have to be drawn from (0, 0) such that all the centers
+of the circles are on at least one segment, and for each segment, find the biggest number of non-overlapping circles."
+
+    This problem can be easily solved with sorting the circles by fraction x/y and use dp for each range of circles with identical ratio x/y
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cerc3.in");
