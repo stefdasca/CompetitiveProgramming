@@ -1,3 +1,12 @@
+/*  
+        infoarena scara2(https://www.infoarena.ro/problema/scara2)
+        
+    Given 4 numbers h, n, m, p, find the minimal effort one has to do such that one climbs n stairs with total height h and distinct lengths
+for climbing 1 stair, the effort is the height of the stair, but for more than 1 stair, the effort is the mean value of the heights climbed + p"
+
+    One can use bitmasks and the 3^m trick to speed up the classical solution to get the minimal effort and one such array of stairs. 
+    
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("scara2.in");
