@@ -1,3 +1,16 @@
+/*
+        Infoarena sormin(https://www.infoarena.ro/problema/sormin)
+        
+    "Given n, s and an array a of n elements, find a subset of array a such that the sum of the elements in that subset is s and the OR
+sum of the values in the array is as small as possible"
+
+    We can search for the each bit from the answer, and if we can't get to the sum s without using elements which have that bit, we will
+add that bit to the answer. The classical knapsack approach is too slow, so we will use the fact that a[i] <= 5000 and create items
+with value 1 * a[i], 2 * a[i], 4 * a[i] and so on to improve the running time, because a OR a OR a OR a = a, for each integer a
+
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("sormin.in");
