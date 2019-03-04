@@ -1,3 +1,14 @@
+/*
+        infoarena pm2(https://www.infoarena.ro/problema/pm2)
+        
+    "Given a directed acyclic graph with n vertexes and m edges, where each vertex is a project with a time ti necessary to be completed,
+ find the shortest time to complete all the projects, given the fact that for each edge (a, b), project a has to be finished before we can
+ start project b. We also have to find the earliest and the latest time we can start each project, so that the total time is not influenced."
+
+    This problem can be easily solved with a topological sort and 2 traversals of the graph and of the reverse graph, where we find the 
+ required data. 
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("pm2.in");
