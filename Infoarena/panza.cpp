@@ -1,3 +1,14 @@
+/*
+        infoarena panza(https://www.infoarena.ro/problema/panza)
+        
+   "Given n segments and m roads of increasing lengths, which unite segments i and i+1, for each i < n, find the shortest path from the starting square, 
+which is on the segment 1, to the end square, which is on the segment n. One has to pass during the path through at least one square
+from position [ai, bi] for each i from 1 to n."
+
+    We can use dp[i][j] = the shortest path to get on the ith segment, at position j, but the normal O(n * m^2) approach is too slow.
+ We can use a minqueue to optimize the approach for O(n * m), which is good enough given that n * m is guaranteed to be smaller than 10^6
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("panza.in");
