@@ -1,3 +1,14 @@
+/*
+        infoarena tablou(https://www.infoarena.ro/problema/tablou)
+        
+   "Given a n*m matrix and k queries, where at some query one modifies the values from the first matrix in a submatrix(xa, ya) to (xb, yb)
+to a certain digit, and we have to compute the sum of the differences between matrix from query i and all the other matrixes from the other
+queries. difference between 2 matrixes is sum of (i <= n and j <= n and p <= n and q <= n) of a[i][j] - b[p][q]"
+
+    We can use some prefix sums to solve this problem in O(n * m + q), using the observation that we can compute in O(1) the amount of 
+modifications one can obtain.
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("tablou.in");
