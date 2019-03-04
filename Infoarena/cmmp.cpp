@@ -1,3 +1,11 @@
+/*
+        infoarena cmmp(https://www.infoarena.ro/problema/cmmp)
+        
+    "Given n numbers smaller than 10^5, find for each of them the smallest perfect square which contains that number as a subarray)
+   
+    This problem can be solved by finding all the subarrays of the first ~300k perfect squares, which is enough for this problem.
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cmmp.in");
