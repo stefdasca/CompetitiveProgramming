@@ -1,3 +1,14 @@
+/*
+    infoarena cartite(https://www.infoarena.ro/problema/cartite)
+    
+    Given an n * m matrix, a mole, some foxes and some underground roads, find 
+    1. the shortest path from the mole to one of the entrances of the roads, without passing through a square attacked by a fox
+    2. a path which crosses all the entrances and returns to the starting point
+    
+    One can use BFS for the first part of the problem and any algorithm to find the euler cycle for the second part
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cartite.in");
