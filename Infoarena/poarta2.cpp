@@ -1,3 +1,17 @@
+/*
+        infoarena poarta2(https://infoarena.ro/problema/poarta2)
+        
+   "Given an infinite matrix with n columns, which will be completed with natural numbers from 1 to infinity line after line, left to right,
+we have to get to the position labeled with k(a number with <= 1000 digits) by using the following moves.
+    - go from position x to position x + 1(cost 1)
+    - go from position x to position 2 * x(cost 2)
+    The first move is free and we can go to a position from the first line.
+    We have to find the minimal number of positions visited, respectively the minimal cost to get to k"
+    
+    We need to find the binary representation of k, and we will use prefix sums to find the values required.
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("poarta2.in");
