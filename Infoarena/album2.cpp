@@ -1,3 +1,14 @@
+/*
+            Infoarena album2(https://infoarena.ro/problema/album2)
+     
+     * translation should work fine for this problem
+    
+     We can group the n numbers in groups, based on what digits they have. At each step, we will check if the number from ith position 
+ was removed or not, and if it wasn't removed, we remove all the numbers which were not removed from its group. We will repeat this until
+ we run out of numbers.
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("album2.in");
