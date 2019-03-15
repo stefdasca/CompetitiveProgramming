@@ -1,3 +1,15 @@
+/*
+        infoarena posta2(https://infoarena.ro/problema/posta2)
+   
+   "Given a tree with n nodes, where each edge has a cost and each vertex has a cost which is paid every time when one visits that city,
+find the best place to place the HQ of a post company, which has to sent mails to M cities. The post company will have to pay no tax for
+all the times when it enters in the HQ city and for the first time when it enters in every other city."
+
+    We can observe that some of the costs are constant no matter which city we will choose as HQ. For the variable costs, we can do a DFS
+and modify some data for each new starting point. 
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("posta2.in");
