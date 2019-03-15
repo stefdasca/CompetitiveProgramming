@@ -1,3 +1,13 @@
+/*
+        infoarena cate3cifre(https://infoarena.ro/problema/cate3cifre)
+        
+    "Find the biggest integer not bigger than n such that it can be written in exactly 2 distinct bases as ppp, where p is a digit from 0 to b - 1
+ where b is a base"
+ 
+    We can observe that the biggest base one can get without reaching over Nmax is 1000, so we can precompute all the numbers which have
+ the stated property.
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cate3cifre.in");
