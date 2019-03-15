@@ -1,3 +1,5 @@
+// similar with https://codeforces.com/problemset/problem/955/C
+
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("abx.in");
