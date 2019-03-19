@@ -1,4 +1,13 @@
+/*
+        Infoarena zip(https://www.infoarena.ro/problema/zip)
+    
+    "Given m strings of length k each, we have to concatenate n of them such that the resulting length is as small as possible. If one string
+has a suffix equal to prefix of the next string in concatenation, we will write the common part only once(length of common part can't be k)
+    Find the smallest length of such a concatenation, given that we can use any string infinitely many times"
+    
+    We can use dp and hashing to solve the problem. Hashing for the max length of a common part and dp for finding the shortest length
 
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("zip.in");
