@@ -1,3 +1,12 @@
+/*
+        infoarena tritzi(https://www.infoarena.ro/problema/tritzi)
+      
+    "Find number of ternary numbers of length n such that there aren't any 0 and 1 which are adjacent"
+    
+    After running a naive dp approach, one can observe that we can reduce the problem to a straightforward matrix exponentiation, because
+dp[i] = 2 * dp[i-1] + dp[i-2], where dp[1] = 3 and dp[2] = 7
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("tritzi.in");
