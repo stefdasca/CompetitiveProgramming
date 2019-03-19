@@ -1,3 +1,13 @@
+/*
+        Infoarena fibo4(https://www.infoarena.ro/problema/fibo4)
+        
+   "Given an array of N elements, initially empty and M queries of type a b c, add for each element i in range [a, b], c + (i - a)th
+Fibonacci number modulo 666013 and print the array resulting"
+
+    Fibonacci numbers are periodic, so we can generate the first ~1.3 million fibonacci numbers, then we can use a segment tree to simulate
+the updates. 
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("fibo4.in");
