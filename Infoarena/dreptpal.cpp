@@ -1,3 +1,11 @@
+/*
+        Infoarena dreptpal(https://www.infoarena.ro/problema/dreptpal)
+        
+    "Given an n*m matrix, find the rectangular submatrix with the biggest area such that all the lines are palindrome"
+    
+    We will use Manacher's algorithm for each line, then dp for each column, where we keep in stacks the immediate minimals at left and right        
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("dreptpal.in");
