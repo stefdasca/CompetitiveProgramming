@@ -1,3 +1,12 @@
+/*
+            Infoarena arbore(https://www.infoarena.ro/problema/arbore)
+    
+    "Given a tree with n nodes, rooted at 1, where all values of nodes are initially empty, and m queries where at each of the queries,
+we either add a value q to the subtree rooted at node p, or we have to report whether it exists a node with a value z or not."
+
+    We can do dfs tour of the tree and sqrt decomposition for each query for a total complexity of O(n sqrt n)
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("arbore.in");
