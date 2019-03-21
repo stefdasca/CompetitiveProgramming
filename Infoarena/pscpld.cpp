@@ -1,3 +1,11 @@
+/*
+             Infoarena pscpld(https://www.infoarena.ro/problema/pscpld)
+   
+   "Given a string s, find the number of palindrome substrings"
+   
+   This problem is educational and it's a straightforward application of Manacher's algorithm
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("pscpld.in");
