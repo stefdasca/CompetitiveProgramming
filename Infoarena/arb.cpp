@@ -1,3 +1,11 @@
+/*
+        Infoarena arb(https://www.infoarena.ro/problema/arb)
+   "Given a tree with n nodes rooted at node 1, answer to m queries of type a b, where we need to find the sum of elements in subtree
+of a which are at most b nodes away from a"
+
+    After we precompute using dfs the ranges for each node and its level, we can sort the queries by the max level they ask for and find
+the sum using segment tree.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("arb.in");
