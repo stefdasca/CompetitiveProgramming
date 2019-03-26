@@ -1,4 +1,11 @@
+/*
+            Infoarena drept2(https://www.infoarena.ro/problema/drept2)
+            
+     "Given a N*M binary matrix, where in each line, there is just one segment with elements equal to one, find the number of rectangles
+of size A*B which have full 1"
 
+    One can solve this problem using deques and sliding window minimum and maximum, while also being careful at case when A = B
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("drept2.in");
