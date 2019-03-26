@@ -1,3 +1,12 @@
+/*
+        Infoarena cuplaje(https://www.infoarena.ro/problema/cuplaje)
+        
+    "Given 2 arrays a and b of size n and m, where a[i] means that ith element from array a can be matched with one of the first a[i]
+elements from b and b[i] means that ith element from array b can be matched with one of the first b[i] elements from a, find the maximal
+matching"
+
+    We can use greedy to solve this problem, by matching the elements from last to first and using set to efficiently find the best matching
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cuplaje.in");
