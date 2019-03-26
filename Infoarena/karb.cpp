@@ -1,3 +1,13 @@
+/*
+                Infoarena karb(https://www.infoarena.ro/problema/karb)
+      
+      "Given a simple connected graph with n nodes and m edges which have cost 0 or 1, find a spanning tree with cost k"
+      
+      We can find the connected components which have 0, then link them with edges with cost 1, then consider only edges with cost 1 and link
+them using edges with cost 1 and 0, in order to get cost k.
+      In order to avoid cycles, we will use DSU to check whether 2 elements are in the same component
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("karb.in");
