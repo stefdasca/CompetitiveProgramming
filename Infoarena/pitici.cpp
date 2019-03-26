@@ -1,3 +1,14 @@
+/*
+            Infoarena pitici(https://www.infoarena.ro/problema/pitici)
+    
+    "Given a directed acyclic graph, where 1 is the highest node and n is the lowest node, find the shortest k different paths starting
+from 1 and ending to n"
+
+    We can use dp on DAG to solve this problem, where dp[i][j] = the jth shortest path starting from i to n. In order to speed up the  
+transitions, we will use priority queues to get the best k paths for each node.
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("pitici.in");
