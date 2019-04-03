@@ -1,3 +1,7 @@
+/*
+        editorial at https://csacademy.com/contest/romanian-ioi-2017-selection-1/task/rooms/solution/
+        it can also be found on infoarena(https://www.infoarena.ro/problema/camere)
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("camere.in");
