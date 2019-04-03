@@ -1,3 +1,11 @@
+/*
+         https://www.infoarena.ro/problema/nrsubsecv
+         
+    "Given an array of n numbers, find for m queries of type (x, y) the number of subarrays which have min value between x and y"
+    
+    We can use stacks to find for each number the first number in left/right smaller than the current number and then do prefix sums
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("nrsubsecv.in");
