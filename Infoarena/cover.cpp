@@ -1,3 +1,13 @@
+/*
+        https://www.infoarena.ro/problema/cover
+       
+      "Given an array of length L where v[i] = cost to include position i, find the minimum cost necessary for a set in order 
+to have at least 1 number from each interval in your set"
+    
+      We can find for each position i from 1 to L, the rightmost interval ending somewhere before i. Using mindeque, we can find 
+the answer for the problem in O(L)
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("cover.in");
