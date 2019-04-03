@@ -1,3 +1,11 @@
+/*
+                 https://www.infoarena.ro/problema/matrice2
+    
+    "Given a n*n matrix, find for q pairs of points the max cost of a road between the points in pair"
+    
+    We can sort the values from matrix and use dsu to find the max cost for each of the such q roads, with respect to implementation details
+       
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("matrice2.in");
