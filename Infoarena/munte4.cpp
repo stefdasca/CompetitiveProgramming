@@ -1,3 +1,11 @@
+/*
+        https://www.infoarena.ro/problema/munte4
+        
+    "Given a circular array of size n, find the suitable place to start from, such that 
+    max of (v[start], v[start+1]+1, ..., v[(start+n-1) % n + 1] + (n-1)) is minimal"
+    
+    Create a 2 * n array, where v[i] = v[i % n + 1] + (i - 1) and we can use classical sliding window to solve the problem.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("munte4.in");
