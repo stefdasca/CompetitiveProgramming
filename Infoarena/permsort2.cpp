@@ -1,3 +1,12 @@
+/*
+        infoarena permsort2 - https://www.infoarena.ro/problema/permsort2
+    
+    "Given a permutation of length n, sort it in at most 2n moves of type P x(prefix of length x is reversed) or S x(suffix of length x is reversed)"
+    
+    We can use the following pattern X+1 X+2 ... N A B X -> B A N N-1 ... X+2 X+1 X -> X X+1 X+2 ... N A B, therefore getting 2n moves.
+We can find the new positions using BIT
+    
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("permsort2.in");
