@@ -1,3 +1,11 @@
+/*
+    https://www.infoarena.ro/problema/color
+    
+    "Given a complete graph with n nodes where s edges are red and all other edges are black, find how many one-colored triangles exist"
+    
+    We can use math to solve this problem, the answer is basically n choose 3 - the number of triangles which have both red and black edges
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("color.in");
