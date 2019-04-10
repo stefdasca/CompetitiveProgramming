@@ -1,3 +1,11 @@
+/*
+         infoarena pesaptecarari - https://www.infoarena.ro/problema/pesaptecarari
+    
+    "Given a directed graph of n nodes, where each node has a value written on it, find the path which has in its product as few
+occurences of P as possible, where P is given in input"
+
+    Do dijkstra for each distinct prime factor and keep the minimal value.       
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("pesaptecarari.in");
