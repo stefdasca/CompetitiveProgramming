@@ -1,3 +1,13 @@
+/*
+        infoarena minuni(https://www.infoarena.ro/problema/minuni)
+        
+    "Given n towns placed in a line, where the ith town is at distance i from origin, and m queries of type a b(a road is added from a to b)
+find how many pairs of cities are getting closer after each query"
+    
+    From the restrictions of the problem we know that the roads are either one included in another, or not intersecting at all. 
+    We will use segment tree to find for a road whether it's included in another road added before or not, and from that point it becomes
+a simple casework problem.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("minuni.in");
