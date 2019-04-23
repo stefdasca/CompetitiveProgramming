@@ -1,5 +1,5 @@
 /*
-        Singapore NOI 19-Pilor
+        Singapore NOI 19-Pilot
 
     We can solve the queries in the increasing order of Qi, using dsu and some math to find the answers for each Qi
 
