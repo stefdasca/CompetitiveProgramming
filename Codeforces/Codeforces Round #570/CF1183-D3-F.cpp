@@ -1,45 +1,40 @@
-#include<bits/stdc++.h>
-#pragma GCC optimize("O3")
+#include <bits/stdc++.h>
 using namespace std;
-int q;
-int n, v[200002], v2[200002];
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cin >> q;
-    for(; q; --q)
-    {
-        cin >> n;
-        for(int i = 1; i <= n; ++i)
-            cin >> v[i];
-        if(n == 1)
-        {
-            cout << v[1] << '\n';
-            continue;
-        }
-        sort(v+1, v+n+1);
-        int ans1 = 0, ans2 = 0;
-        for(int i = n-1; i >= 1; --i)
-            if(ans1 == 0 && v[n] % v[i])
-                ans1 += v[i];
-            else
-                if(ans1 % v[i] && v[n] % v[i])
-                {
-                    ans1 += v[i];
-                    break;
-                }
-        for(int i = n-2; i >= 1; --i)
-            if(ans2 == 0 && v[n-1] % v[i])
-                ans2 += v[i];
-            else
-                if(ans2 % v[i] && v[n-1] % v[i])
-                {
-                    ans2 += v[i];
-                    break;
-                }
-        cout << max(ans1 + v[n], ans2 + v[n-1]) << '\n';
-    }
-    return 0;
+
+#define ll long long
+#define ar array
+
+const int mxN=2e5;
+int q, n, a[mxN];
+
+void solve() {
+	cin >> n;
+	for(int i=0; i<n; ++i)
+		cin >> a[i];
+	sort(a, a+n);
+	n=unique(a, a+n)-a;
+	int ans=a[n-1];
+	for(int i=0; i<n; ++i) {
+		int j=i-1;
+		while(~j&&a[i]%a[j]==0)
+			--j;
+		if(~j) {
+			ans=max(a[i]+a[j], ans);
+			int k=j-1;
+			while(~k&&(a[i]%a[k]==0||a[j]%a[k]==0))
+				--k;
+			if(~k)
+				ans=max(a[i]+a[j]+a[k], ans);
+		}
+	}
+	cout << ans << "\n";
 }
 
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	cin >> q;
+	while(q--)
+		solve();
+}
