@@ -4,7 +4,8 @@
     * n is small, so we can run bitmask dp
     * given a subset of strings, we can choose to either put them together in a single root or split them into two groups,
 we can implement this recursively and get the answer
-    * thus, the complexity will be O(3^n), since we will run in every mask of every mask.
+    * thus, the complexity will be O(3^n), since we will iterate in every mask of every mask. in order to avoid TLE, 
+one has to memorize the answer for a mask.
 
 */
 #include<bits/stdc++.h>
