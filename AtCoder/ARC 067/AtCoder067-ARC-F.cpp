@@ -1,3 +1,7 @@
+/*
+     * we can find in O(n * m) in which range we are going to use each possible meal, using stacks
+     * afterwards, we can create 2D prefix sums using the data computed in the previous step. 
+*/
 #include<bits/stdc++.h>
 #pragma GCC optimize("O3")
 using namespace std;
