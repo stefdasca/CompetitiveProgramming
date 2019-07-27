@@ -1,3 +1,4 @@
+// editorial = https://codeforces.com/blog/entry/68676
 #include<bits/stdc++.h>
 #pragma GCC optimize("O3")
 #define fi first
