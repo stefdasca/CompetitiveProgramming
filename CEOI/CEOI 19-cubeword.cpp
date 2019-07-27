@@ -37,6 +37,7 @@ int cod(char c)
         return 52 + (c - '0');
 }
 ll val[1000002];
+
 int frq[102];
 int fct[] = {1, 1, 2, 6, 24, 120};
 ll perm(int a, int b, int c, int d)
@@ -57,7 +58,6 @@ ll dp(int len)
 {
     if(!wd[len].size())
         return 0;
-    int mx = 0;
     map<string, int>ss;
     memset(ch, 0, sizeof(ch));
     memset(val, 0, sizeof(val));
@@ -75,7 +75,7 @@ ll dp(int len)
         bool pal = 1;
         for(int j = 0; j < s.size(); ++j)
             if(s[j] != s[s.size() - j - 1])
-                pal = 0, mx = max(mx, cod(s[j]));
+                pal = 0;
         if(pal)
             ch[cod(s[0])][cod(s[s.size() - 1])]++;
         else
@@ -104,53 +104,30 @@ ll dp(int len)
             }
         }
     ll anss = 0;
-    if(mx <= 52)
-        for(int i = 0; i <= 61; ++i)
-            for(int j = 0; j <= 61; ++j)
-                for(int p = 0; p <= 61; ++p)
+    for(int i = 0; i <= 61; ++i)
+        for(int j = i; j <= 61; ++j)
+            for(int p = j; p <= 61; ++p)
+            {
+                ll twice[6];
+                memset(twice, 0, sizeof(twice));
+                twice[1] = val[i * 62 * 62 + j * 62 + p];
+                if(!twice[1])
+                    continue;
+                for(int k = p; k <= 61; ++k)
                 {
-                    ll twice[6];
-                    memset(twice, 0, sizeof(twice));
-                    twice[1] = val[i * 62 * 62 + j * 62 + p];
-                    if(!twice[1])
+                    twice[2] = val[i * 62 * 62 + j * 62 + k];
+                    twice[3] = val[i * 62 * 62 + p * 62 + k];
+                    twice[4] = val[j * 62 * 62 + p * 62 + k];
+                    ll pp = perm(i, j, p, k);
+                    if(!twice[1] || !twice[2] || !twice[3] || !twice[4])
                         continue;
-                    for(int k = 0; k <= 61; ++k)
-                    {
-                        twice[2] = val[i * 62 * 62 + j * 62 + k];
-                        twice[3] = val[i * 62 * 62 + p * 62 + k];
-                        twice[4] = val[j * 62 * 62 + p * 62 + k];
-                        ll pp = 1;
-                        if(!twice[1] || !twice[2] || !twice[3] || !twice[4])
-                            continue;
-                        for(int kk = 1; kk <= 4; ++kk)
-                            pp = (pp * twice[kk]) % mod;
-                        anss = (anss + pp);
-                        if(anss >= mod)
-                            anss -= mod;
-                    }
+                    for(int kk = 1; kk <= 4; ++kk)
+                        pp = (pp * twice[kk]) % mod;
+                    anss = (anss + pp);
+                    if(anss >= mod)
+                        anss -= mod;
                 }
-    else
-        for(int i = 0, vpoz = 0; i <= 61; ++i, vpoz += 62 * 62)
-            for(int j = i; j <= 61; ++j)
-                for(int p = j; p <= 61; ++p)
-                {
-                    if(!val[vpoz + j * 62 + p])
-                        continue;
-                    for(int k = p; k <= 61; ++k)
-                    {
-                        if(!val[vpoz + j * 62 + k] || !val[vpoz + p * 62 + k] || !val[j * 62 * 62 + p * 62 + k])
-                            continue;
-                        ll pp = perm(i, j, p, k) * 1LL * val[vpoz + j * 62 + p] * val[vpoz + j * 62 + k];
-                        pp %= mod;
-                        pp = pp * val[vpoz + p * 62 + k];
-                        pp %= mod;
-                        pp = pp * val[j * 62 * 62 + p * 62 + k];
-                        pp %= mod;
-                        anss = (anss + pp);
-                        if(anss >= mod)
-                            anss -= mod;
-                    }
-                }
+            }
     return anss;
 }
 int main()
@@ -169,3 +146,4 @@ int main()
     cout << ans;
     return 0;
 }
+
