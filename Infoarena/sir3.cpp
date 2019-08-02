@@ -1,3 +1,13 @@
+/*
+        Infoarena sir3(google translate does a decent enough job at translating the statement)
+    
+    Let's keep for every distinct number in array the position of its complement(S - v[i]) and with those positions, we are going to create 
+two segment trees, one for max-query and one for min-query. If complement is situated in right of the original element, we are going to ask 
+a query to check whether the minimum in range [i, complement[i] is equal to position of original element and 
+maximum in range [i, complement[i] is equal to position of the complement. This works because if we have an element which has complement 
+in left or in right of the interval, min or max will be outside of the range. 
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("sir3.in");
