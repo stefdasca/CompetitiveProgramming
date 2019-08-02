@@ -1,3 +1,13 @@
+/*
+        Infoarena matrice(google translate does a good job at translating the statement)
+        
+    Let's fix the length of one side of the rectangle. Then, we will iterate among the possible sides in a sliding window fashion and
+we will keep information of the sequence with the most zeroes and of the sequence with the most ones. Basically, in order to maximize the answer, 
+we have to use a rectangle either with many zeroes in both R and C arrays, or with many ones, so that the xors will be 0.
+
+    Therefore, the running time will be O((n+m) sqrt n)
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("matrice.in");
