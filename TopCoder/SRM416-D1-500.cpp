@@ -1,8 +1,8 @@
 /*
         SRM416-D1-500
 
-    Let's run any brute force algorithm for the first few possible sums. One can observe either by hand or
-by using OEIS(https://oeis.org/A001402) that the sequence has a recurrence relation, which we are going to implement it.
+    Let's run any brute force algorithm for the first few possible sums. One can observe either by hand(https://www.topcoder.com/tc?module=Static&d1=match_editorials&d2=srm416) 
+or by using OEIS(https://oeis.org/A001402) that the sequence has a recurrence relation, which we are going to implement it.
 
 */
 #include<bits/stdc++.h>
