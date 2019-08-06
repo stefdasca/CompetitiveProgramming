@@ -1,5 +1,9 @@
 /*
 
+    Let's observe that we can answer for the queries offline, fixing the number of lines the matrices which we are searching for have.
+
+    Using any O(n^2) algorithm to find the maximum number of consecutive columns fully filled with ones for each position of the matrix,
+we can answer to the queries in O(1) if we also precompute max[i...j] in O(n^2) for all the pairs(i, j), with i <= j.
 
 */
 #include<bits/stdc++.h>
