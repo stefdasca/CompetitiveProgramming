@@ -1,3 +1,13 @@
+/*
+        * Let's define dp[i][j][0/1] = minimal amount of flips which are necessary to get the dish to be for j seconds on side 1, if we 
+last used the ith segment, and we are on side 0/1.
+
+        * In order to compute this value, we will be using the values for the previous segment, therefore needing only the last two lines 
+of the recurrence. In order to make the computing of transitions more efficient, we are going to use a deque which will always keep 
+the min value in a segment of range [l[i], r[i]].
+    
+        * Therefore, we are using an optimization of the naive solution, which basically reduces a factor of n from its complexity.
+*/
 #include<bits/stdc++.h>
 #pragma GCC optimize("O3")
 #define fi first
