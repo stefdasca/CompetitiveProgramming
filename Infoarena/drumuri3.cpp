@@ -3,7 +3,7 @@
 
 
     "Given a connected graph with n nodes and m edges, as well as q queries and a length k,
-find the number of paths from ai to bi of length at most k(length is given in nodes)"
+find for each query the number of paths from ai to bi of length at most k(length is given in nodes)"
 
 
     This problem can be solved using divide and conquer technique, based on matrix exponentiation.
