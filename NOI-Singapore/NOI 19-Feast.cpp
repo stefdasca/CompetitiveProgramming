@@ -19,9 +19,9 @@ pair<ll, ll> dp[300002]; // max sum, number of subarrays
 
 pair<ll, ll> opt(ll penalty)
 {
-	memset(dp, 0, sizeof(dp));
-	pair<ll, ll> ms = {0, 0}; // the optimal pair so far
-	for(int i = 0; i < n; ++i)
+    memset(dp, 0, sizeof(dp));
+    pair<ll, ll> ms = {0, 0}; // the optimal pair so far	
+    for(int i = 0; i < n; ++i)
     {
         pair<ll, ll> cs = {dp[i].fi-prefix[i], dp[i].se}; // a new candidate pair, we create it based on the value of dp[i]
         if((cs.fi > ms.fi) || (cs.fi == ms.fi && cs.se < ms.se))
@@ -31,8 +31,8 @@ pair<ll, ll> opt(ll penalty)
         dp[i+1] = dp[i];
         if((nd.fi > dp[i].fi) || (nd.fi == dp[i].fi && nd.se < dp[i].se))
             dp[i+1] = nd;
-	}
-	return dp[n];
+    }
+    return dp[n];
 }
 
 int main()
