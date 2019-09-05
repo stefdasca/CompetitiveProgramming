@@ -23,13 +23,13 @@ pair<ll, ll> opt(ll penalty)
 	pair<ll, ll> ms = {0, 0}; // the optimal pair so far
 	for(int i = 0; i < n; ++i)
     {
-		pair<ll, ll> cs = {dp[i].fi-prefix[i], dp[i].se}; // a new candidate pair, we create it based on the value of dp[i]
-		if((cs.fi > ms.fi) || (cs.fi == ms.fi && cs.se < ms.se))
-			ms = cs;
-		pair<ll, ll> nd = {ms.fi - penalty + prefix[i+1], ms.se+1}; // a candidate pair for dp[i+1], we create it based on the optimal pair ms
+        pair<ll, ll> cs = {dp[i].fi-prefix[i], dp[i].se}; // a new candidate pair, we create it based on the value of dp[i]
+        if((cs.fi > ms.fi) || (cs.fi == ms.fi && cs.se < ms.se))
+            ms = cs;
+        pair<ll, ll> nd = {ms.fi - penalty + prefix[i+1], ms.se+1}; // a candidate pair for dp[i+1], we create it based on the optimal pair ms
         // dp[i+1] = max(dp[i], nd)
         dp[i+1] = dp[i];
-		if((nd.fi > dp[i].fi) || (nd.fi == dp[i].fi && nd.se < dp[i].se))
+        if((nd.fi > dp[i].fi) || (nd.fi == dp[i].fi && nd.se < dp[i].se))
             dp[i+1] = nd;
 	}
 	return dp[n];
