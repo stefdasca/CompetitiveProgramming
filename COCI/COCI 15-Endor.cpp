@@ -5,9 +5,11 @@
 happens will be equivalent(it can be proved easily after reading the statement carefully)
 
     In order to get the O(n * k) solution, we first need to understand how the O(n^2) solution works.
-After observing the statement mentioned above, we can simulate the moves quite easily. That's what we are going
-to do in the O(n * k) solution, since all the ants having the same color can be reduced to one ant, after keeping
-suffix sums of the starting positions, of the last positions visited and of the count of ants of a given color.
+After observing the statement mentioned above, we can simulate the moves quite easily if we fix the position of the ant which goes 
+towards right. 
+
+      That's what we are going to do in the O(n * k) solution, since all the ants having the same color can be reduced to one ant, 
+after keeping suffix sums of the starting positions, of the last positions visited and of the count of ants of a given color.
 
 */
 #include<bits/stdc++.h>
