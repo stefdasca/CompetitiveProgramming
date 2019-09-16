@@ -2,7 +2,7 @@
             USACO 18mar-sortgold
 
     Keep the sorted array in both another array and a set, and at each step
-use a binary indexed tree to answer to the query: how many elements left of i are not bigger
+use a binary indexed tree to answer to the query: how many elements left of i are bigger
 than v[i], thus the answer being the maximal value from these queries.
 
 */
