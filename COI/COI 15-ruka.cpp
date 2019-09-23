@@ -1,7 +1,7 @@
 /*
         COI 15-Ruka
 
-    * friendly note: My solution is not the intended one but I believe it's easier to understand(even though it's hard to implement as well)
+    * friendly note: My solution is not the intended one(it passes with 1924ms) but I believe it's easier to understand(even though it's hard to implement as well)
 
     * Let's solve the problem using sqrt decomposition + merge sort tree. I will repeat this algorithm once at O(sqrt Q) queries by rebuilding
 everything from the scratch.
