@@ -4,7 +4,7 @@
     * Both Bytie and Bytone will use a greedy strategy. In order to simplify the game we are going to split the game in two simpler games
 such that if we combine them, we will get the same result(the proof is too long to be posted here, one can find it in editorial)
         
-    * In the first part of the game we can observe that for each number we are going to make its respective pair equal to 0 in log2(v[i]) + 4 moves.
+    * In the first part of the game we can observe that for each number we are going to make its respective pair equal to 0 in 2 * log2(v[i]) + 4 moves.
     * In the second part of the game we are going to drop the extra moves which we are doing. In order to do this we are going to consider the number of leading 
 ones in the binary representation of v[i] and add the result in a multiset in order to be able to simulate effectively the strategy used by both players. 
     * While we still have elements in multiset, if the biggest element in the multiset is bigger than 1, we are going to drop one from it, remove it from the multiset,
