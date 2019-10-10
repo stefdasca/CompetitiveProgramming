@@ -62,8 +62,8 @@ int main()
         if(poz[i] && sz[poz[i]])
         {
             int nod = poz[i];
-			deque<int> t, s;
-			while(gr[nod] == 1)
+            deque<int> t, s;
+            while(gr[nod] == 1)
             {
                 for(int i = 0; i < arb[nod].size(); ++i)
                 {
@@ -75,18 +75,18 @@ int main()
                         break;
                     }
                 }
-			}
-			while(!nr.empty() && *nr.begin() < i)
+	    }
+       	    while(!nr.empty() && *nr.begin() < i)
             {
-				s.push_front(*nr.begin());
-				nr.erase(nr.begin());
-			}
-			if(s.size() <= sz[poz[i]])
-				for (int j = 0; j < min(s.size(), t.size()); ++j)
-					cul[t[j]] = s[j];
-			else
-				for (int j = 0; j + sz[poz[i]] < s.size(); ++j)
-					nr.insert(0);
+		  s.push_front(*nr.begin());
+                  nr.erase(nr.begin());
+  	    }
+	    if(s.size() <= sz[poz[i]])
+		for (int j = 0; j < min(s.size(), t.size()); ++j)
+		    cul[t[j]] = s[j];
+	    else
+		for (int j = 0; j + sz[poz[i]] < s.size(); ++j)
+		     nr.insert(0);
         }
     }
     for(int i = 1; i <= n; ++i)
