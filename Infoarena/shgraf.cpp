@@ -58,6 +58,7 @@ int main()
         }
     }
 
+    // at each step, we add a new node to the cycle, which is the root of a tree with (x+1) nodes
     dp[0][0] = 1;
     for(int i = 1; i <= n; ++i)
         for(int j = 0; j <= n; ++j)
