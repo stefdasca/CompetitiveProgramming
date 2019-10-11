@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("2sat.in");
-ofstream g("2sat.out");
+ofstream g("2sat.out"); 
 int n, m;
 bool pus[200002], viz[200002];
 int comp[200002];
