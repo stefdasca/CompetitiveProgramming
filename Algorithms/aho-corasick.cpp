@@ -29,7 +29,7 @@ void baga(char c[], int i)
     }
     t->v.push_back(i);
 }
-int main()
+int main() 
 {
     f >> r >> n;
     szr = strlen(r);
