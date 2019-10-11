@@ -4,7 +4,7 @@ ifstream f("apm.in");
 ofstream g("apm.out");
 int n, m;
 vector<pair<int, int> >v[200002];
-bool viz[200002], pus[200002];
+bool viz[200002], pus[200002]; 
 set<pair<int, int> >s;
 int mn[200002];
 int vc[200002];
