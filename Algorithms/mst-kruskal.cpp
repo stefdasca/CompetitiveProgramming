@@ -49,5 +49,5 @@ int main()
     g << n-1 << '\n';
     for(int i = 1; i <= q; ++i)
         g << ans[i].first << " " << ans[i].second << '\n';
-    return 0;
+    return 0; 
 }
