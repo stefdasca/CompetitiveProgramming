@@ -33,7 +33,7 @@ int bin_search(int sum)
         }
         else
             L = mid + 1;
-    }
+    } 
     if(ans == 0)
         return -1;
     return ans;
