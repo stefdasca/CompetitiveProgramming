@@ -56,6 +56,6 @@ int main()
     g << lf << '\n';
     g << fixed << setprecision(6);
     for (int i = 1; i <= lf; ++i)
-        out << sol[i].x << " " << sol[i].y << '\n';
+        g << sol[i].x << " " << sol[i].y << '\n';
     return 0;
 }
