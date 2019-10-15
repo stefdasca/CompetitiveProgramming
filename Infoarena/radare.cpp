@@ -1,6 +1,8 @@
 /*
         Infoarena radare - Romanian National Olympiad, 2011
-
+    "Given a tree with n nodes, rooted at node 1, a number p and the time we need to visit each of the n towns, find the number of ways we can 
+block edges in the tree such that the sum of the visiting times of the cities we can visit is exactly p modulo 31333. Two ways differ if
+there is some edge (a, b) which is blocked in the first way but not in the second way"
 
     The obvious O(n * p^2) dp[i][j] = number of ways to block the edges in subtree of node i such that you get sum j gets 60.
 
