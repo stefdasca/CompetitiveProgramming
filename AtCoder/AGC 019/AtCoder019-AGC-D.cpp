@@ -82,11 +82,11 @@ int main()
     cin >> a;
     cin >> b;
     int n = a.size();
-	int ans = getans();
-	reverse(a.begin(), a.end());
-	reverse(b.begin(), b.end());
-	ans = min(ans, getans());
-	if(ans == (1<<30))
+    int ans = getans();
+    reverse(a.begin(), a.end());
+    reverse(b.begin(), b.end()); 
+    ans = min(ans, getans());
+    if(ans == (1<<30))
         cout << -1;
     else
         cout << ans;
