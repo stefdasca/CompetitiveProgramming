@@ -1,3 +1,14 @@
+/*
+            SPOJ DRTREE
+     
+     Let's do some preprocessing for the initial state(root = 1). We will use a DFS to precompute the LCA with RMQ,
+subtree sums and 2^x th ancestors for each node(binary lifting). 
+
+     At each query, if the root is in subtree of the asked node(according to root = 1), then we will drop from the sum of nodes
+the sum of subtree of the first son on the road from the node to the root, otherwise we will keep the subtree sum of the current node. 
+     
+     
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
