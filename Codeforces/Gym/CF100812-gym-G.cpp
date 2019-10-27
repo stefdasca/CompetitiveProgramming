@@ -1,3 +1,11 @@
+/*
+        CF100812-gym-G
+       
+    Run Dijkstra's algorithm from all the nodes at once, and keep for each node the closest 2 nodes labeled with 1.
+One has to be careful in order to keep the closest distances to 2 different nodes.
+
+
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
