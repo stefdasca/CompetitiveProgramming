@@ -121,7 +121,7 @@ int solve_general()
 
 int main()
 {
-    srand(3169);
+    srand(69691);
     ios_base::sync_with_stdio(NULL);
     cin.tie(NULL);
     f >> n >> m >> k;
