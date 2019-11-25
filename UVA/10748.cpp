@@ -1,3 +1,6 @@
+/*
+    https://algorithmist.com/wiki/UVa_10748
+*/
 #include<bits/stdc++.h>
 using namespace std;
 
