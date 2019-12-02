@@ -1,6 +1,9 @@
 /*
 
-    editorial = https://c...content-available-to-author-only...r.com/tc?module=Static&d1=match_editorials&d2=srm401
+    If we concatenate the strings given in the input and then do the expansion, we can reduce the problem to finding the smallest period of 
+the string.
+
+    This can be done with KMP using prefix function, thus the answer will be (size of string - value of prefix function for the last character of the string).
 
 */
 #include<bits/stdc++.h>
@@ -23,7 +26,6 @@ class RunningLetters
      public:
         int newsLength(vector<string> running)
         {
-            // how to process the input?
             string s;
             string x;
             for(int i = 0; i < running.size(); ++i)
