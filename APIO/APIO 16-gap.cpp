@@ -1,9 +1,12 @@
 /*
             APIO 16-gap
 
+     For subtask 1, we can use the following approach. First call MinMax(0, 1e18, st, dr), then call MinMax(st, dr, st2, dr2) until
+you build the whole array.
 
-
-
+     For subtask 2, one can observe that the answer is at least (max_val - min_val) / (n - 1) and from that point we can use a while loop
+to find the next element for each position. If we found some other element present in the range (x, x + ans), we will jump to x + ans + 1, since the elements
+in the range can't bring us the maximum answer, because of their too small differences. 
 
 */
 #include<bits/stdc++.h>
