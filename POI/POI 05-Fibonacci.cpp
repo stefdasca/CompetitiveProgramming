@@ -8,7 +8,8 @@
 
     Then, run this sequence of operations for a finite amount of times:
 
-        - run a for-loop and check at each step if we have 1 on the fibonacci base for positions i and i+1, in descending order.
+        - run a for-loop and check at each step if we have 1 on the fibonacci base for positions i and i+1, once in descending order
+and once in ascending order.
         - check if we have 1 on the position 0 and transfer it to position 1
 
     Finally, check the length of the number.
@@ -81,6 +82,22 @@ int main()
         if(a[0] && !a[1])
             a[1] = 1, a[0] = 0, ch = 1;
         for(int pp = n+5; pp >= 0; --pp)
+            if(a[pp] && a[pp+1])
+                ch = 1, a[pp]--, a[pp+1]--, a[pp+2]++;
+            else
+                if(a[pp] >= 2)
+                {
+                    if(pp == 1)
+                        a[pp+1]++, a[pp] -= 2;
+                    else
+                    {
+                        a[pp+1]++;
+                        a[pp]-=2;
+                        a[pp-2]++;
+                    }
+                    ch = 1;
+                }
+        for(int pp = 1; pp <= n+5; ++pp)
             if(a[pp] && a[pp+1])
                 ch = 1, a[pp]--, a[pp+1]--, a[pp+2]++;
             else
