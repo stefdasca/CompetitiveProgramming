@@ -97,7 +97,7 @@ int main()
                     }
                     ch = 1;
                 }
-        for(int pp = 1; pp <= n+5; ++pp)
+        for(int pp = 0; pp <= n+5; ++pp)
             if(a[pp] && a[pp+1])
                 ch = 1, a[pp]--, a[pp+1]--, a[pp+2]++;
             else
