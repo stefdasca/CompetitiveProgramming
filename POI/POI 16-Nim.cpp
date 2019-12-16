@@ -28,7 +28,7 @@ run through big numbers which require lots of memory).
 
     Therefore, we are going to get a solution which runs fast enough to get 100.
 
-    Tags: dp, combinatorics, bitmasks, games, implementation.
+    Tags: math, dp, combinatorics, bitmasks, games, implementation.
 
 */
 #include<bits/stdc++.h>
