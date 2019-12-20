@@ -58,17 +58,17 @@ int n, x, m, src, tt[25];
 vector<edge> e;
 vector<vector<int> > adj;
 vector<int> v;
-bool dfs(int u, int par)
+bool dfs(int nod, int par)
 {
-    if(u == src)
+    if(nod == src)
     {
-        v.push_back(u);
+        v.push_back(nod);
         return 1;
     }
-    for(int i = 0, len = adj[u].size(); i < len; ++i)
-        if(adj[u][i] != par && dfs(adj[u][i], u))
+    for(int i = 0; i < adj[nod].size(); ++i)
+        if(adj[nod][i] != par && dfs(adj[nod][i], u))
         {
-            v.push_back(u);
+            v.push_back(nod);
             return 1;
         }
     return 0;
