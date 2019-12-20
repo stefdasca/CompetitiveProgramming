@@ -66,7 +66,7 @@ bool dfs(int nod, int par)
         return 1;
     }
     for(int i = 0; i < adj[nod].size(); ++i)
-        if(adj[nod][i] != par && dfs(adj[nod][i], u))
+        if(adj[nod][i] != par && dfs(adj[nod][i], nod))
         {
             v.push_back(nod);
             return 1;
