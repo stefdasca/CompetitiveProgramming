@@ -30,9 +30,6 @@ int main()
         dp[i] += ((dp[i-3] * (i-1) * (i-2) / 2) % mod);
         dp[i] %= mod;
     }
-    for(int i = 3; i <= 10; ++i)
-        g << dp[i] << " ";
-    g << '\n';
     dp[n] *= fact[n];
     g << dp[n] % mod;
     return 0;
