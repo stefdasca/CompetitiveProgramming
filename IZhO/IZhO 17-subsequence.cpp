@@ -1,5 +1,5 @@
 /*
-        IZhO 17-sequence
+        IZhO 17-subsequence
 
     Let's define dp[i] = biggest length of subsequence if the last element is i. Obviously, this dp can be computed in O(n^2) or in
 O(n * max_value)(combining these solutions gives you 40 points).
