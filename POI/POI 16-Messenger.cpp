@@ -10,8 +10,7 @@ with BFS).
     2) keeping the list of neighbors in classical format rather than in std::vector style(faster runtime, also the difference is quite significant when
 we're talking about big time limits, like we have here).
 
-    Implementing this properly will ensure 100 points and also the running time is quite good(further optimizations
-can also be found).
+    Implementing this properly will ensure 100 points and even though the complexity can be O(n^5), it behaves well in practice.
 
 */
 #include<bits/stdc++.h>
