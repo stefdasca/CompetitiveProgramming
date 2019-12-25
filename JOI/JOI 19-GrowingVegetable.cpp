@@ -60,7 +60,6 @@ int main()
                     int chR = j;
                     int chG = k;
                     int chY = i - j - k;
-                    // next = rosu
                     if(chR < v[1].size() && lst != 0)
                     {
                         int realpos = v[1][chR];
