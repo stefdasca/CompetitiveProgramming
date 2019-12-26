@@ -80,7 +80,6 @@ void dfs(int dad, int nod, int plc)
     int val = mp[plc][xorr[nod]];
     sol += val;
     mp[plc][xorr[nod]]++;
-   // cout << nod << " " << xorr[nod] << '\n';
     for(int i = 0; i < v[nod].size(); ++i)
     {
         int vecin = v[nod][i].fi;
@@ -100,7 +99,6 @@ void Union(int a, int b, int c, int tna, int tnb)
     if(sz[a] == 1)
         mp[a][0]++;
     xorr[tnb] = xorr[tna] ^ c;
-   // cout << a << " " << b << " " << c << '\n';
     dfs(0, tnb, a);
     v[tna].pb({tnb, c});
     v[tnb].pb({tna, c});
