@@ -1,3 +1,9 @@
+/*
+            UVA 12099
+    
+    editorial: https://github.com/mostafa-saad/MyCompetitiveProgramming/blob/master/UVA/UVA_12099.txt
+
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
