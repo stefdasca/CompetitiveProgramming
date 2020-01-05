@@ -116,7 +116,6 @@ int main()
                 anss = min(anss, min(vaa, vbb));
             if(j != 1)
                 ans[i][j] = min(vaa, vbb);
-            // to solve the query
         }
         build(i);
     }
