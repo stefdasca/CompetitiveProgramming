@@ -4,7 +4,7 @@
     For n = m, we can find the rolling hashes of size min(k, n) and count with a map or by sorting the number of equal pairs.
 
     Let's extend this approach for n != m. We can observe that our period will be at most n*m. Since we can't build all the matrix, we will
-need to compute the LCMs in a binary lifting like approach for all the possible 8 directions.
+need to compute the hashes for each string in a binary lifting like approach for all the possible 8 directions.
 
 */
 #include<bits/stdc++.h>
