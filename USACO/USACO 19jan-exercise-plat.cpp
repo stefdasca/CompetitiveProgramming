@@ -1,3 +1,9 @@
+/*
+		USACO 19jan-exercise-plat
+
+     editorial - http://usaco.org/current/data/sol_exercise_platinum_jan19.html
+	
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
