@@ -1,7 +1,12 @@
 /*
         POI 11-okr
 
+     We will use KMP's prefix function to find the periods of the string, in order to use them to assign the '1'
+necessary for constructing the string. 
 
+     Then, we will iterate among the periods and assign '1' based on running KMP on the current answer. Even though it seems like
+we will have to run KMP many times, it's actually not the case, since there aren't many periods(if we exclude those who are multiples of the
+previous periods).
 
 */
 #include<bits/stdc++.h>
