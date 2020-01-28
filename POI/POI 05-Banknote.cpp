@@ -2,7 +2,7 @@
         POI 05-Banknote
 
     Use knapsack in order to find the answer and the parts the answer is made of. In order to speed up the algorithm
-we're going to use the trick where we split n items of type a into 1+2+4+...+biggest power of 2+(n - sum of powers of two used already).
+we're going to use the trick where we split n items of type a into 1+2+4+...+biggest possible power of 2+(n - sum of powers of two used already).
 
 */
 #include<bits/stdc++.h>
