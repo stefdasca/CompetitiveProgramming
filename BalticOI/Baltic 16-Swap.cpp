@@ -3,9 +3,9 @@
 
     One can observe that the swaps form a binary tree, so we can use DP to solve the problem easily
 
-	Let dp[i][j] = minimal permutation of nodes in subtree of i if node i has been set to j
+    Let dp[i][j] = minimal permutation of nodes in subtree of i if node i has been set to j
 
-	There are at most O(nlogn) states, O(subtree size) per transition, therefore the
+    There are at most O(nlogn) states, O(subtree size) per transition, therefore the
 total complexity is O(n log^2 n), because we are in a binary tree.
 
 */
