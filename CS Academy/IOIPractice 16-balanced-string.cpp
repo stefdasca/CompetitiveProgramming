@@ -1,3 +1,9 @@
+/*  
+            IOIPractice 16-balanced-string
+    
+    https://csacademy.com/contest/archive/task/balanced-string/solution/
+
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
