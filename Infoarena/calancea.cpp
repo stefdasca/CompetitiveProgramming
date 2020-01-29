@@ -1,3 +1,13 @@
+/*
+     https://infoarena.ro/problema/calancea = https://csacademy.com/contest/archive/task/increasing_subarrays/statement/
+     
+                     (used at Romania's 2013 IOI selection)
+
+     We can use a deque and two-pointers to find the number of possible subarrays we can obtain, starting from every i from n to 1. By keeping a max-deque,
+we can keep updated the cost of making subarray i...(max_pos), where max_pos is the max pos up to we can still make the array increasing.
+    
+     After each step, we can drop from the second pointer until the cost is again smaller than the max accepted cost.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 ifstream f("calancea.in");
