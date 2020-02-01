@@ -53,37 +53,39 @@ int main()
                     mini = dp[prv][a][b] + mat[c][d];
                     wh = 1;
                 }
-                else if(a == d)
-                {
-                    mini = dp[prv][c][b] + mat[a][d];
-                    wh = 2;
-                }
-                else if(b == d)
-                {
-                    mini = dp[prv][c][a] + mat[b][d];
-                    wh = 3;
-                }
                 else
-                {
-                    int op = dp[prv][a][b];
-                    if(op + mat[c][d] < mini)
+                    if(a == d)
                     {
-                        mini = op + mat[c][d];
-                        wh = 1;
-                    }
-                    op = dp[prv][c][b];
-                    if(op + mat[a][d] < mini)
-                    {
-                        mini = op + mat[a][d];
+                        mini = dp[prv][c][b] + mat[a][d];
                         wh = 2;
                     }
-                    op = dp[prv][c][a];
-                    if(op + mat[b][d] < mini)
-                    {
-                        mini = op + mat[b][d];
-                        wh = 3;
-                    }
-                }
+                    else
+                        if(b == d)
+                        {
+                            mini = dp[prv][c][a] + mat[b][d];
+                            wh = 3;
+                        }
+                        else
+                        {
+                            int op = dp[prv][a][b];
+                            if(op + mat[c][d] < mini)
+                            {
+                                mini = op + mat[c][d];
+                                wh = 1;
+                            }
+                            op = dp[prv][c][b];
+                            if(op + mat[a][d] < mini)
+                            {
+                                mini = op + mat[a][d];
+                                wh = 2;
+                            }
+                            op = dp[prv][c][a];
+                            if(op + mat[b][d] < mini)
+                            {
+                                mini = op + mat[b][d];
+                                wh = 3;
+                            }
+                        }
                 nxt[i][a][b] = wh;
                 dp[curr][a][b] = mini;
             }
