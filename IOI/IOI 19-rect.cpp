@@ -19,11 +19,11 @@ vector<long long> v;
 void check(int xa, int xb, int ya, int yb)
 {
 	if(xb < xa || yb < ya)
-        return;
+	    return;
 	if(!((maxdr[xb][ya-1]-1 == yb && rightup[xb][ya-1] <= xa) || (maxst[xb][yb+1]+1 == ya && leftup[xb][yb+1] <= xa)))
-        return;
+            return;
 	if(!((maxdwn[xa-1][yb]-1 == xb && downleft[xa-1][yb] <= ya) || (maxup[xb+1][yb]+1 == xa && upleft[xb+1][yb] <= ya)))
-        return;
+            return;
 	v.push_back(((1LL * xa * 3010 + xb) * 3010 + ya) * 3010 + yb);
 }
 long long count_rectangles(vector<vector<int> > a)
@@ -151,6 +151,6 @@ long long count_rectangles(vector<vector<int> > a)
                 check(i, maxdwn[i-1][j]-1, maxst[maxdwn[i-1][j]-1][j+1]+1, j);
         }
     sort(v.begin(), v.end());
-	v.resize(unique(v.begin(), v.end()) - v.begin());
+    v.resize(unique(v.begin(), v.end()) - v.begin());
     return v.size();
 }
