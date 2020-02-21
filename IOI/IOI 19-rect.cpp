@@ -17,14 +17,14 @@ int upleft[2502][2502], downleft[2502][2502], leftup[2502][2502], rightup[2502][
 
 vector<long long> v;
 void check(int xa, int xb, int ya, int yb)
-{
-	if(xb < xa || yb < ya)
-	    return;
-	if(!((maxdr[xb][ya-1]-1 == yb && rightup[xb][ya-1] <= xa) || (maxst[xb][yb+1]+1 == ya && leftup[xb][yb+1] <= xa)))
-            return;
-	if(!((maxdwn[xa-1][yb]-1 == xb && downleft[xa-1][yb] <= ya) || (maxup[xb+1][yb]+1 == xa && upleft[xb+1][yb] <= ya)))
-            return;
-	v.push_back(((1LL * xa * 3010 + xb) * 3010 + ya) * 3010 + yb);
+{ 
+    if(xb < xa || yb < ya)
+        return;
+    if(!((maxdr[xb][ya-1]-1 == yb && rightup[xb][ya-1] <= xa) || (maxst[xb][yb+1]+1 == ya && leftup[xb][yb+1] <= xa)))
+        return;
+    if(!((maxdwn[xa-1][yb]-1 == xb && downleft[xa-1][yb] <= ya) || (maxup[xb+1][yb]+1 == xa && upleft[xb+1][yb] <= ya)))
+        return;
+    v.push_back(((1LL * xa * 3010 + xb) * 3010 + ya) * 3010 + yb);
 }
 long long count_rectangles(vector<vector<int> > a)
 {
