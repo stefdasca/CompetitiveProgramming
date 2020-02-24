@@ -1,5 +1,5 @@
 /*
-        IOI 05-Rivers
+        IOI 05-rivers
 
     We can solve this problem using dp on trees.
 
