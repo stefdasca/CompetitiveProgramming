@@ -49,7 +49,7 @@ char *b[3][11] =
     {"+ +", "+ +", "+ +", "+ +", "+.+", "+ +", "+.+", "+ +", "+ +", "+.+", "+.+"},
 };
 
-void tst(int t0, int t1, int t2, int t3, int r, int c, int mask, int U, int &h0, int &h1, int &h2, int &h3);
+void chk(int t0, int t1, int t2, int t3, int r, int c, int mask, int U, int &h0, int &h1, int &h2, int &h3);
 
 int solve(int r, int c, int mask, int U, int reconstruct)
 {
@@ -69,30 +69,30 @@ int solve(int r, int c, int mask, int U, int reconstruct)
     int h0 = 0, h1 = 0, h2 = 0, h3 = 0;
 
     if(!X && !L && !U && 1 && 1)
-        tst(0, 0, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // empty
+        chk(0, 0, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
 
     if(X && L && !U && 1 && 1)
-        tst(1, 1, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // left
+        chk(1, 1, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(X && !L &&  U && 1 && 1)
-        tst(2, 1, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // up
+        chk(2, 1, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(X && !L && !U && R && 1)
-        tst(3, 1, mask |  (1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // right
+        chk(3, 1, mask |  (1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(X && !L && !U && 1 && D)
-        tst(4, 1, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3); // down
+        chk(4, 1, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3);
 
     if(!X &&  L && !U && R && 1)
-        tst(5, 2, mask | (1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // left-right
+        chk(5, 2, mask | (1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(!X && !L &&  U && 1 && D)
-        tst(6, 2, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3); // up-down
+        chk(6, 2, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3);
 
     if(!X && L && U && 1 && 1)
-        tst(7, 2, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // left-up
+        chk(7, 2, mask & ~(1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(!X && !L && U && R && 1)
-        tst(8, 2, mask |  (1<<r), 0, r, c, mask, U, h0, h1, h2, h3); // up-right
+        chk(8, 2, mask |  (1<<r), 0, r, c, mask, U, h0, h1, h2, h3);
     if(!X && !L && !U && R && D)
-        tst(9, 2, mask |  (1<<r), 1, r, c, mask, U, h0, h1, h2, h3); // right-down
+        chk(9, 2, mask |  (1<<r), 1, r, c, mask, U, h0, h1, h2, h3);
     if(!X &&  L && !U && 1 && D)
-        tst(10, 2, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3); // down-left
+        chk(10, 2, mask & ~(1<<r), 1, r, c, mask, U, h0, h1, h2, h3);
 
     if(reconstruct)
     {
@@ -102,7 +102,7 @@ int solve(int r, int c, int mask, int U, int reconstruct)
     return dp[r][c][mask][U];
 }
 
-void tst(int t0, int t1, int t2, int t3, int r, int c, int mask, int U, int &h0, int &h1, int &h2, int &h3)
+void chk(int t0, int t1, int t2, int t3, int r, int c, int mask, int U, int &h0, int &h1, int &h2, int &h3)
 {
     int v = t1 + solve(r+1, c, t2, t3, 0);
     if(v < dp[r][c][mask][U])
