@@ -1,5 +1,5 @@
 /*
-        POI 11-pro
+        POI 11-Contest
 
     We are going to greedily match the problems with the people, as long as this is possible. Since the given graph
 is bipartite, we can run an algorithm similar to max matching in bipartite graph, which is polynomial and good enough
