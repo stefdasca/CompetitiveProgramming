@@ -1,3 +1,14 @@
+/*
+        CEOI 15-indcyc
+
+    Transform every edge a -> b in two new nodes, represented by (a->b) and (b->a).
+
+    For every triple (a, b, c) such that edges a->b and b->c exist, connect (a->b) and (b->c) if a is not connected to c.
+
+    Now we can run DFS in the new graph and print the first cycle we have found(by the construction presented above, we made sure that we
+won't have a cycle of length 3.
+
+*/
 #include<bits/stdc++.h>
 #define fi first
 #define se second
