@@ -44,12 +44,12 @@ int main()
     cin >> n >> m;
     for(int i = 1; i <= m; i++)
     {
-        int a, b;
-        cin >> a >> b;
-        mat[a][b] = mat[b][a] = 1;
-        muchii[i] = {a, b};
-        v[a].pb({b, i});
-        v[b].pb({a, i+m});
+         int a, b;
+         cin >> a >> b;
+         mat[a][b] = mat[b][a] = 1;
+         muchii[i] = {a, b};
+         v[a].pb({b, i});
+         v[b].pb({a, i+m});
     }
     for(int i = 1; i <= m; i++)
     {
@@ -59,14 +59,14 @@ int main()
               int w = v[b][j].fi;
               int e = v[b][j].se;
               if(w != a && w != b && !mat[w][a])
-             	 v2[i].pb(e);
+	          v2[i].pb(e);
          }
          for(int j = 0; j < v[a].size(); ++j)
          {
-        	  int w = v[a][j].fi;
-        	  int e = v[a][j].se;
-        	  if(w != a && w != b && !mat[w][b])
-         		 v2[i+m].pb(e);
+              int w = v[a][j].fi;
+              int e = v[a][j].se;
+              if(w != a && w != b && !mat[w][b])
+                  v2[i+m].pb(e);
       	 }
     }
     for(int i = 1; !st && i <= m+m; i++)
@@ -74,7 +74,7 @@ int main()
             dfs(0, i);
     if(!st)
     {
-	    cout << "no\n";
+	cout << "no\n";
         return 0;
     }
     int nr = dr;
@@ -87,10 +87,10 @@ int main()
             sol.pb(muchii[nr].fi);
         if(nr == st)
             break;
-		nr = tt[nr];
-	}
-	for(int i = 0; i < sol.size(); ++i)
+        nr = tt[nr];
+    }
+    for(int i = 0; i < sol.size(); ++i)
         cout << sol[i] << " ";
-	cout << '\n';
-	return 0;
+    cout << '\n';
+    return 0;
 }
