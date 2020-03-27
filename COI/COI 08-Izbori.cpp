@@ -6,7 +6,7 @@
     For the second part of the problem, we can use a binary search approach, where we check if we can end up with j votes for the party i.
 During one step of the binary search, we're going to use dp to find out if we can accomplish the given condition.
 
-    dp[i][j] = max number of votes if we have assigned j seats to the first i parties.
+    dp[i][j] = max number of unassigned votes remaining if we have assigned j seats to the first i parties.
 
     We need to be careful at the implementation details in this case as well, because we need to be careful when it comes to checking the first condition
 and when it comes to finding the solution(I used cross product instead of doubles, it may not be necessary, though).
