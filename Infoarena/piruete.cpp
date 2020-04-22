@@ -1,3 +1,24 @@
+/*
+	Romania IOI TST Pirouettes
+ 
+   We will use DP to solve this task.
+  
+   dp[t][k][0/1][i][j] = number of ways to get in t seconds, after using k obstacles, if the ballerina moves towards right or left
+and the leftmost obstacle is at distance i from origin and the rightmost obstacle is at distance j from origin.
+Also, in this state, the ballerina is currently at the origin(very important observation).
+
+   Now we can use several optimizations to make this approach work fast enough.
+   
+   Firstly, we realize that we can divide t by two since after each new obstacle, she will return to origin.
+   
+   Secondly, we can remove the second dimension and make it 0/1 because we can place at most one obstacle from a certain state.
+   
+   Thirdly, the transition updates all the states of type [t + something][k + 0/1][0/1][x][j], where x is in range [i+1, n+1](similar 
+for y). We can now use prefix sums in order to avoid updating multiple states at once and with just one precomputation, the complexity
+becomes good enough.
+
+   Now, the total complexity is O(k * t * n^2), which fits the time limit.
+*/
 #include<bits/stdc++.h>
 #define god dimasi5eks
 #pragma GCC optimize("O3")
@@ -56,8 +77,8 @@ int main()
 	for(int kk = 0; kk <= k; ++kk)
 	{
 		int mt = t;
-        for(int dt = mtp; dt < t; ++dt)
-			for(int lo = 0; lo <= n+1; ++lo)
+       		for(int dt = mtp; dt < t; ++dt)
+	        	for(int lo = 0; lo <= n+1; ++lo)
 				for(int ro = 0; ro <= n+1; ++ro)
 				{
 					if(dp[dt][0][0][lo][ro])
