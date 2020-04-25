@@ -14,7 +14,6 @@ to get the solution.
 				the pins which have the hole in range [a[i], b[i]]
 	
 	The problem is solved in a similar fashion for the other end, and the overall complexity will be O(m log m).
-
 */
 #include<bits/stdc++.h>
 #define god dimasi5eks
