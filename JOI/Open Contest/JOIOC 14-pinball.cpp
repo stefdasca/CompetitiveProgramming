@@ -85,7 +85,6 @@ int main()
 			rc[i] = 1;
 		dist.insert(c[i]);
 	}
-	
 	map<int, int> tpoz;
     int p = 0;
     for (int i : dist)
