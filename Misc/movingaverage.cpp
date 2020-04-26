@@ -39,30 +39,30 @@ int main()
  
     #ifdef fisier
         ifstream cin("input.in");
-     //   ofstream cout("output.out");
+     // ofstream cout("output.out");
     #endif
  
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
-	char s[1000002];
-	cin.get(s, 100000);
-	int len = strlen(s);
-	for(int i = 10; i < len; ++i)
+    char s[1000002];
+    cin.get(s, 100000);
+    int len = strlen(s);
+    for(int i = 10; i < len; ++i)
+    {
+	bool ok = 1;
+	for(int j = i; j <= i+8; ++j)
+	    if(s[j] == x[j-i]);
+	    else
+		ok = 0;
+	if(ok)
 	{
-		bool ok = 1;
-		for(int j = i; j <= i+8; ++j)
-			if(s[j] == x[j-i]);
-			else
-				ok = 0;
-		if(ok)
-		{
-			int poz = i+11;
-			int nr = 0;
-			while(s[poz] >= '0' && s[poz] <= '9')
-				nr = (nr * 10) + (s[poz] - '0'), ++poz;
-			cout << nr << '\n';
-		}
-	}	
+	    int poz = i+11;
+	    int nr = 0;
+	    while(s[poz] >= '0' && s[poz] <= '9')
+		nr = (nr * 10) + (s[poz] - '0'), ++poz;
+	    cout << nr << '\n';
+	}
+    }	
     return 0;
 }
