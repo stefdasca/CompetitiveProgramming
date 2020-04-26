@@ -9,9 +9,8 @@
 	You may need this tutorial too: http://libanswers.walsh.edu/faq/147605
 	
 	All you have to do is to copy the API data and read the data using file IO. Now, open excel and
-add the rating points in table. Now, use data analysis and add the points in graph by using Excel commansds.
+add the rating points in table. Now, use data analysis and add the points in graph by using Excel commands.
 
-	
 */
 
 
