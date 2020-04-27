@@ -70,14 +70,13 @@ void bfs(int org, int arr[])
 }
 int main()
 {
+   	 #ifdef fisier
+       	 	ifstream f("input.in");
+		ofstream g("output.out");
+	#endif
  
-    #ifdef fisier
-        ifstream f("input.in");
-        ofstream g("output.out");
-    #endif
- 
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
  
 	int t;
 	cin >> t;
@@ -96,9 +95,9 @@ int main()
 			{
 				if(mat[i][j] == 'A') 
 					orgA = i * n + j;
-                if(mat[i][j] == 'B') 
+               			if(mat[i][j] == 'B') 
 					orgB = i * n + j;
-                if(mat[i][j] == '#') 
+                		if(mat[i][j] == '#') 
 					continue;
 				int x = i * n + j;
 				if(j && mat[i][j - 1] != '#') 
