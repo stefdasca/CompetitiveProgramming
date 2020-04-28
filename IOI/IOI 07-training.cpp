@@ -14,7 +14,7 @@ each tree edge can be part of at most 1 odd cycle
 
 	Let's define dp[i][mask] = max sum of non-tree edges we keep in subtree of i
 when the children specified in mask aren't considered
-    dp[i][mask] = max(sum_of_children(dp[child][0]), max(Edge cost + sum_of_decomposed_paths_from_edge));
+        dp[i][mask] = max(sum_of_children(dp[child][0]), max(Edge cost + sum_of_decomposed_paths_from_edge));
     
     In order to compute the DP, we can use LCA and bitmasking, and since the constraints are small,
 we can use naive methods to compute them, it will be fast enough. 
@@ -93,14 +93,13 @@ int LCA(int a, int b)
 }
 int main()
 {
+   	#ifdef fisier
+		ifstream f("input.in");
+		ofstream g("output.out");
+	#endif
 
-    #ifdef fisier
-        ifstream f("input.in");
-        ofstream g("output.out");
-    #endif
-
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 
 	cin >> n >> m;
 	for(int i = 1; i <= m; ++i)
@@ -118,24 +117,23 @@ int main()
 	dfs(0, 1);
 	for(int i = 0; i < m; ++i)
 		muchii[i].lca = LCA(muchii[i].a, muchii[i].b);
-    sort(muchii.begin(), muchii.end(), cmp);
-
-    for(muchie i : muchii) 
+   	sort(muchii.begin(), muchii.end(), cmp);
+	for(muchie i : muchii) 
 	{
 		int de = lvl[i.a] % 2;
 		int dx = lvl[i.b] % 2;
-        if(i.c && (de ^ dx))
+		if(i.c && (de ^ dx))
 			continue;
-        int sm = i.c;
-        pair<int, int> A, B;
-        for(A = {i.a, 0}; A.fi != i.lca; A = p[A.fi]) 
+		int sm = i.c;
+		pair<int, int> A, B;
+		for(A = {i.a, 0}; A.fi != i.lca; A = p[A.fi]) 
 			sm += dp[A.fi][A.se];
-        for(B = {i.b, 0}; B.fi != i.lca; B = p[B.fi]) 
+		for(B = {i.b, 0}; B.fi != i.lca; B = p[B.fi]) 
 			sm += dp[B.fi][B.se];
-        for(int mask = (1 << grad[i.lca]) - 1; mask >= 0; mask--) 
-            if(!(mask & A.se || mask & B.se))
-                dp[i.lca][mask] = max(dp[i.lca][mask], sm + dp[i.lca][mask | A.se | B.se]);
-    }
+		for(int mask = (1 << grad[i.lca]) - 1; mask >= 0; mask--) 
+			if(!(mask & A.se || mask & B.se))
+				dp[i.lca][mask] = max(dp[i.lca][mask], sm + dp[i.lca][mask | A.se | B.se]);
+	}
     cout << cost - dp[1][0];
     return 0;
 }
