@@ -27,8 +27,6 @@ two priority queues.
 #define pb push_back
 #define pf push_front
 
-// #define fisier 1
-
 using namespace std;
 
 typedef long long ll;
@@ -44,7 +42,7 @@ bool cmp(pair<int, int> a, pair<int, int> b)
 
 priority_queue<int> lpq;
 priority_queue<int, vector<int>, greater<int>> rpq;
-ll lsum, rsum;
+ll lsum, rsum, ansa;
 ll ps[100001];
 
 void add(int x) 
@@ -52,83 +50,76 @@ void add(int x)
     int median = (lpq.size() ? lpq.top() : 1000000001);
     if(x <= median) 
     {
-        lpq.push(x);
-        lsum += x;
+	    lpq.push(x);
+	    lsum += x;
     } 
     else 
     {
-        rpq.push(x);
-        rsum += x;
+	    rpq.push(x);
+	    rsum += x;
     }
     if(rpq.size() + 1 < lpq.size()) 
     {
-        int nxt = lpq.top();
-        lpq.pop();
-        rpq.push(nxt);
-        lsum -= nxt;
-        rsum += nxt;
+	    int nxt = lpq.top();
+	    lpq.pop();
+	    rpq.push(nxt);
+	    lsum -= nxt;
+	    rsum += nxt;
     } 
     else 
-		if(lpq.size() < rpq.size()) 
-		{
-			int nxt = rpq.top();
-			rpq.pop();
-			lpq.push(nxt);
-			rsum -= nxt;
-			lsum += nxt;
-		}
+	if(lpq.size() < rpq.size()) 
+	{
+		int nxt = rpq.top();
+		rpq.pop();
+		lpq.push(nxt);
+		rsum -= nxt;
+		lsum += nxt;
+	}
 }
 
 int main()
 {
-
-    #ifdef fisier
-        ifstream f("input.in");
-        ofstream g("output.out");
-    #endif
-
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    	ios_base::sync_with_stdio(false);
+    	cin.tie(NULL);
 
 	int k, n;
-    ll ansa = 0;
-    vector<pair<int, int>> v = {{0, 0}};
-    cin >> k >> n;
-    for(int i = 0; i < n; ++i)
-    {
-        char a, b;
-        int x, y;
-        cin >> a >> x >> b >> y;
-        if(a == b) 
+	vector<pair<int, int>> v = {{0, 0}};
+	cin >> k >> n;
+	for(int i = 0; i < n; ++i)
+	{
+		char a, b;
+		int x, y;
+		cin >> a >> x >> b >> y;
+		if(a == b) 
 			ansa += abs(x - y);
-        else 
+		else 
 			v.push_back({x, y});
-    }
-    sort(v.begin(), v.end(), cmp);
-    n = v.size() - 1;
-    ansa += n;
-    lsum = rsum = 0; 
-    for(int i = 1; i <= n; ++i)
-    {
-        add(v[i].fi);
-        add(v[i].se);
-        ps[i] = rsum - lsum;
-    }
-    ll ansb = ps[n];
-    if(k == 2) 
-    {
-        while(lpq.size()) 
+	}
+	sort(v.begin(), v.end(), cmp);
+	n = v.size() - 1;
+	ansa += n;
+	lsum = rsum = 0; 
+	for(int i = 1; i <= n; ++i)
+	{
+		add(v[i].fi);
+		add(v[i].se);
+		ps[i] = rsum - lsum;
+	}
+	ll ansb = ps[n];
+	if(k == 2)
+	{
+		while(lpq.size()) 
 			lpq.pop();
-        while(rpq.size()) 
+		while(rpq.size()) 
 			rpq.pop();
-        lsum = rsum = 0;
-        for(int i = n; i >= 1; i--) 
-        {
-            add(v[i].fi);
-            add(v[i].se);
-            ansb = min(ansb, rsum - lsum + ps[i - 1]);
-        }
-    }
-    cout << ansa + ansb;
-    return 0;
+		lsum = rsum = 0;
+		for(int i = n; i >= 1; i--) 
+		{
+			add(v[i].fi);
+			add(v[i].se);
+			ansb = min(ansb, rsum - lsum + ps[i - 1]);
+		}
+   	}
+    	cout << ansa + ansb;
+    	return 0;
 }
