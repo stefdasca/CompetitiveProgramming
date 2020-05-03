@@ -1,3 +1,9 @@
+/*
+	IOI 17-prize
+	
+    Idea: http://ioi2017.org/tasks/editorial/prize.pdf
+    
+*/
 #include<bits/stdc++.h>
 #include "prize.h"
 #define god dimasi5eks
