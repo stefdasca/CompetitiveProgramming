@@ -36,8 +36,8 @@ pair<ll, int> solve(ll n, int mx)
 	while(step <= n/10) 
 		step *= 10;
 	pair<ll, int> ans = make_pair(0, 0);
-    while(1) 
-    {
+    	while(1) 
+    	{
 		int cf = n/step;
 		int newmx = mx;
 		if(cf > newmx) 
