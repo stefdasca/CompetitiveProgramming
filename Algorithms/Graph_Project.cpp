@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-
+ 
 #define fi first
 #define se second 
  
@@ -7,9 +7,9 @@ using namespace std;
  
 typedef long long ll;
  
-ifstream f("dfs.in");
-ofstream g("dfs.out");
-
+ifstream f("darb.in");
+ofstream g("darb.out");
+ 
 class Graph_Solver
 {
 	int n, m, st, nr, scc;
@@ -246,11 +246,297 @@ class Graph_Solver
 				for(map<pair<int, int>, int> :: iterator it = mp.begin(); it != mp.end(); ++it)
 					g << (it->first).fi << " " << (it->first).se << '\n';
 		}
+		int Find(int nod, vector<int> &tt)
+		{
+			if(tt[nod] == nod)
+				return nod;
+			return tt[nod] = Find(tt[nod], tt);
+		}
+		void Union(int a, int b, vector<int> &sz, vector<int> &tt)
+		{
+			if(sz[a] >= sz[b])
+				sz[a] += sz[b], tt[b] = a;
+			else
+				sz[b] += sz[a], tt[a] = b;
+		}
+		void cost_graph(vector<vector<pair<int, int> > > &costs, vector<pair<int, pair<int, int> > > &edges)
+		{
+			f >> n >> m;
+			costs.resize(n+1);
+			for(int i = 1; i <= m; ++i)
+			{
+				int a, b, c;
+				f >> a >> b >> c;
+				costs[a].push_back({b, c});
+				edges.push_back({c, {a, b}});
+			}
+		}
+		void dsu()
+		{
+			f >> n >> m;
+			vector<int> tt(n+1, 0);
+			vector<int> sz(n+1, 0);
+			for(int i = 1; i <= n; ++i)
+				tt[i] = i, sz[i] = 1;
+			for(; m; --m)
+			{
+				int tip, a, b;
+				f >> tip >> a >> b;
+				if(tip == 1)
+				{
+					int fnd_a = Find(a, tt);
+					int fnd_b = Find(b, tt);
+					Union(fnd_a, fnd_b, sz, tt);
+				}
+				else
+				{
+					int fnd_a = Find(a, tt);
+					int fnd_b = Find(b, tt);
+					if(fnd_a == fnd_b)
+						g << "DA\n";
+					else
+						g << "NU\n";
+				}
+			}
+		}
+		void apm()
+		{
+			vector<vector<pair<int, int> > > costs;
+			vector<pair<int, pair<int, int> > > edges, apm;
+			long long cost = 0;
+			cost_graph(costs, edges);
+			sort(edges.begin(), edges.end());
+			vector<int> tt(n+1, 0);
+			vector<int> sz(n+1, 0);
+			for(int i = 1; i <= n; ++i)
+				tt[i] = i, sz[i] = 1;
+			for(int i = 0; i < m; ++i)
+			{
+				int a = edges[i].second.first;
+				int b = edges[i].second.second;
+				int c = edges[i].first;
+				int fnd_a = Find(a, tt);
+				int fnd_b = Find(b, tt);
+				if(fnd_a != fnd_b)
+				{
+					Union(fnd_a, fnd_b, sz, tt);
+					cost += c;
+					apm.push_back(edges[i]);
+				}
+			}
+			g << cost << '\n';
+			g << n-1 << '\n';
+			for(auto x : apm)
+				g << x.second.first << " " << x.second.second << '\n';
+		}
+		void dijkstra()
+		{
+			vector<vector<pair<int, int> > > costs;
+			vector<pair<int, pair<int, int> > > edges;
+			cost_graph(costs, edges);
+			vector<long long> dist(n+1, 0);
+			set<pair<long long, int> > djk;
+			djk.insert({0, 1});
+			while(!djk.empty())
+			{
+				pair<long long, int> nod = *djk.begin();
+				djk.erase(nod);
+				for(auto x : costs[nod.second])
+				{
+					int nxt = x.first;
+					int cst = x.second;
+					if(nxt == 1)
+						continue;
+					if(dist[nxt] == 0 || nod.first + cst < dist[nxt])
+					{
+						djk.erase({dist[nxt], nxt});
+						dist[nxt] = nod.first + cst;
+						djk.insert({dist[nxt], nxt});
+					}
+				}
+			}
+			for(int i = 2; i <= n; ++i)
+				g << dist[i] << " ";
+			g << '\n';
+		}
+		void bellman_ford()
+		{
+			vector<vector<pair<int, int> > > costs;
+			vector<pair<int, pair<int, int> > > edges;
+			cost_graph(costs, edges);
+			vector<long long> dist(n+1, 0);
+			vector<int> viz(n+1, 0);
+			vector<int> isqueue(n+1, 0);
+			for(int i = 2; i <= n; ++i)
+				dist[i] = (1LL<<60);
+			queue <int> q;
+			q.push(1);
+			viz[1] = 1;
+			isqueue[1] = 1;
+			bool neg_cicle = 0;
+			while(!q.empty())
+			{
+				int nod = q.front();
+				q.pop();
+				isqueue[nod] = 0;
+				for(auto x : costs[nod])
+				{
+					int nxt = x.first;
+					int cost = x.second;
+					if(dist[nxt] > dist[nod] + cost)
+					{
+						dist[nxt] = dist[nod] + cost;
+						++viz[nxt];
+						if(viz[nxt] >= n-1)
+						{
+							neg_cicle = 1;
+							while(!q.empty())
+								q.pop();
+							break;
+						}
+						if(!isqueue[nxt])
+						{
+							q.push(nxt);
+							isqueue[nxt] = 1;
+						}
+					}
+				}
+			}
+			if(neg_cicle)
+				g << "Ciclu negativ!";
+			else
+			{
+				for(int i = 2; i <= n; ++i)
+					g << dist[i] << " ";
+			}
+		}
+		int maxflow()
+		{
+			vector<vector<pair<int, int> > > costs;
+			vector<pair<int, pair<int, int> > > edges;
+			cost_graph(costs, edges);
+			v.resize(n+2);
+			int C[n+2][n+2], flow = 0, F[n+2][n+2], TT[n+2];
+			for(int i = 0; i <= n; ++i)
+				for(int j = 0; j <= n; ++j)
+					C[i][j] = F[i][j] = TT[i] = 0;
+			for(auto x : edges)
+			{
+				v[x.se.fi].push_back(x.se.se);
+				v[x.se.se].push_back(x.se.fi);
+				C[x.se.fi][x.se.se] += x.fi;
+			}
+			while(1)
+			{
+				int cd[n+2], viz[n+2];
+				for(int i = 0; i <= n; ++i)
+					cd[i] = 0;
+				cd[0]=cd[1]=1;
+				memset(viz, 0, sizeof(viz));
+				viz[1] = 1;
+				for (int i=1;i<=cd[0];i++)
+				{
+					int nod = cd[i];
+					if (nod == n)
+						continue;
+					for (int j = 0; j < v[nod].size(); j++)
+					{
+						int V = v[nod][j];
+						if (C[nod][V] == F[nod][V] || viz[V])
+							continue;
+						viz[V] = 1;
+						cd[++cd[0]] = V;
+						TT[V] = nod;
+					}
+				}
+				for (int i=0;i<v[n].size();i++)
+				{
+					int nod=v[n][i];
+					if (F[nod][n] == C[nod][n] || !viz[nod])
+						continue;
+					TT[n] = nod;
+					int fmin = (1<<30);
+					for (nod = n; nod != 1; nod=TT[nod])
+					{
+						int R=TT[nod];
+						fmin=min(fmin,C[R][nod]-F[R][nod]);
+					}
+					if (fmin == 0)
+						continue;
+					for (nod = n; nod != 1; nod = TT[nod])
+					{
+						int R=TT[nod];
+						F[R][nod]+=fmin;
+						F[nod][R]-=fmin;
+					}
+					flow+=fmin;
+				}
+				if(!viz[n])
+					break;
+			}
+			return flow;
+		}
+		void floyd_warshall()
+		{
+			f >> n;
+			int a[n+2][n+2];
+			for(int i = 1; i <= n; ++i)
+				for(int j = 1; j <= n; ++j)
+					f >> a[i][j];
+			for(int k = 1; k <= n; k++)
+				for(int i = 1; i <= n; i++)
+					for(int j = 1; j <= n; j++)
+						if(a[i][k] && a[k][j] && (a[i][j] > a[i][k] + a[k][j] || !a[i][j]) && i != j)
+							a[i][j] = a[i][k] + a[k][j];
+			for(int i = 1; i <= n; g << '\n', ++i)
+				for(int j = 1; j <= n; ++j)
+					g << a[i][j] << " ";
+		}
+		int bfs_new(int node)
+		{
+			for(int i = 1; i <= n; ++i)
+				dist[i] = -1;
+			dist[node] = 0;
+			queue<int> q;
+			q.push(node);
+			while(!q.empty())
+			{
+				int nod = q.front();
+				q.pop();
+				for(auto x : v[nod])
+				{
+					if(dist[x] == -1)
+					{
+						dist[x] = dist[nod] + 1;
+						q.push(x);
+					}
+				}
+			}
+			int mx = node;
+			for(int i = 1; i <= n; ++i)
+				if(dist[i] > dist[mx])
+					mx = i;
+			return mx;
+		}
+		void darb()
+		{
+			f >> n;
+			dist.resize(n+1);
+			v.resize(n+1);
+			for(int i = 1; i < n; ++i)
+			{
+				int a, b;
+				f >> a >> b;
+				v[a].push_back(b);
+				v[b].push_back(a);
+			}
+			g << dist[bfs_new(bfs_new(1))]+1 << '\n';
+		}
 };
-
+ 
 Graph_Solver gr;
 int main()
 {
-	gr.havel_hakimi();
+	gr.darb();
 	return 0;
 }
