@@ -1,3 +1,4 @@
+	
 #include<bits/stdc++.h>
  
 #define fi first
@@ -7,14 +8,14 @@ using namespace std;
  
 typedef long long ll;
  
-ifstream f("darb.in");
-ofstream g("darb.out");
+ifstream f("dfs.in");
+ofstream g("dfs.out");
  
 class Graph_Solver
 {
 	int n, m, st, nr, scc;
 	vector<vector<int> > v, sol, tr;
-	vector<int> visited, dist, niv, low;
+	vector<int> visited, dist, niv, low, stanga, dreapta;
 	vector<pair<int, int> > critical;
 	deque<int> d;
 	stack<int> s;
@@ -532,11 +533,145 @@ class Graph_Solver
 			}
 			g << dist[bfs_new(bfs_new(1))]+1 << '\n';
 		}
+		void euler_cycle()
+		{
+			vector<pair<int, pair<int, int> > > edges;
+			vector<vector<pair<int, int> > > costs;
+			f >> n >> m;
+			costs.resize(n+1);
+			for(int i = 1; i <= m; ++i)
+			{
+				int a, b;
+				f >> a >> b;
+				costs[a].push_back({b, i});
+				costs[b].push_back({a, i});
+			}
+			for(int i = 1; i <= n; ++i)
+				if((int)costs[i].size() & 1)
+				{
+					g << -1;
+					return;
+				}
+			d.push_back(1);
+			vector<int>sol;
+			vector<bool> was(m+1, 0);
+			while(!d.empty())
+			{
+				int st = d.back();
+				if(!costs[st].size())
+				{
+					sol.push_back(st);
+					d.pop_back();
+					continue;
+				}
+				int a = costs[st].back().first;
+				int b = costs[st].back().second;
+				costs[st].pop_back();
+				if(was[b])
+					continue;
+				d.push_back(a);
+				was[b] = 1;
+			}
+			sol.pop_back();
+			for(int i = 0; i < sol.size(); ++i)
+				g << sol[i] << " ";
+		}
+		void hamilton()
+		{
+			int n, m;
+			f >> n >> m;
+			vector<int> ve[n+2];
+			int dp[(1<<n)][n];
+			int a[n+1][n+1];
+			memset(a, 0, sizeof(a));
+			for (int i = 1; i <= m; i++)
+			{
+				int x, y, c;
+				f >> x >> y >> c;
+				a[x][y] = c;
+				ve[x].push_back(y);
+			}
+			memset(dp, 0x3f3f3f3f, sizeof(dp));
+			for (int i = 0; i < n; i++)
+				dp[1][i]=0;
+			for(int stare = 0; stare < (1<<n); stare++)
+				for (int i = 0; i < n; i++)
+					if(stare&(1<<i))
+						for(int j = 0; j < (int)ve[i].size(); ++j)
+						{
+							int k = ve[i][j];
+							if(stare & (1<<k))
+								dp[stare][i] = min(dp[stare][i], dp[stare^(1<<i)][k]+a[i][k]);
+						}
+			int ans=0x3f3f3f3f;
+			for (int i = 0; i < n; i++)
+				if(a[0][i]!=0)
+					ans=min(ans, dp[(1<<n)-1][i]+a[0][i]);
+			if(ans != 0x3f3f3f3f)
+				g << ans;
+			else
+				g << "Nu exista solutie";
+		}
+		bool dfs_m(int nod)
+		{
+			if(visited[nod])
+				return 0;
+			visited[nod] = 1;
+			for(int i = 0; i < v[nod].size(); i++)
+			{
+				int vecin = v[nod][i];
+				if(!dreapta[vecin] || dfs_m(dreapta[vecin]))
+				{
+					stanga[nod] = vecin;
+					dreapta[vecin] = nod;
+					return 1;
+				}
+			}
+			return 0;
+		}
+		void cuplaj()
+		{
+			int st, dr, m;
+			f >> st >> dr >> m;
+			v.resize(st + 2);
+			visited.resize(st + 2);
+			stanga.resize(st + 2);
+			dreapta.resize(dr + 2);
+			for(int i = 0; i <= st; ++i)
+				stanga[i] = 0;
+			for(int i = 0; i <= dr; ++i)
+				dreapta[i] = 0;
+			for(int i = 1; i <= m; i++)
+			{
+				int a, b;
+				f >> a >> b;
+				v[a].push_back(b);
+			}
+			bool ok = 1;
+			while(ok)
+			{
+				for(int i = 0; i <= st; ++i)
+					visited[i] = 0;
+				ok = false;
+				for(int i = 1; i <= st; i++)
+					if(!stanga[i] && dfs_m(i))
+						ok =1;
+			}
+			int cuplaje = 0;
+			for(int i = 1; i <= st; i++)
+				if(stanga[i])
+					cuplaje++;
+			g << cuplaje << '\n';
+			for(int i = 1; i <= st; i++)
+				if(stanga[i])
+					g << i << " " <<  stanga[i] << '\n';
+		}
 };
  
 Graph_Solver gr;
 int main()
 {
-	gr.darb();
+	gr.citire(0, 0);
+	g << gr.conex();
 	return 0;
 }
