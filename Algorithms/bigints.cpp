@@ -32,7 +32,7 @@ int add()
  
 int multiply(int val)
 {
-	for(int i = 1; i <= max(a[0], b[0]); i++)
+	for(int i = 1; i <= a[0]; i++)
 	{
 		a[i] *= val;
 	}
