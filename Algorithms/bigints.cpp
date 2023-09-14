@@ -2,13 +2,13 @@
  
 using namespace std;
  
-int baza = 10000000; // baza mai mare = mai putine cifre = calcule mai putine (atentie la overflow!)
+int baza = 10000000; // bigger base = fewer digits = fewer computations (be careful about overflows!) 
  
 int a[1002], b[1002]; 
- 
-// a[0] = nr cifre al lui a
-// cifre inversate
- 
+
+// a[0] = number of digits of a
+// digits are inversed 
+
 int add()
 {
 	for(int i = 1; i <= max(a[0], b[0]); i++)
