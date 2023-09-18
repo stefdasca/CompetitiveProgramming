@@ -61,7 +61,9 @@ int divide(int val)
 		a[i] /= val;
 		rest = rest * baza;
 	}
- 
+
+	while(a[a[0]] == 0 && a[0] > 1)
+		a[0]--;
 }
  
 int print()
