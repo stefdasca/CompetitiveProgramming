@@ -47,7 +47,6 @@ int main()
     {
         long long hsh_a = (hsh[0][i] - ((hsh[0][i - m] * pw[0][m]) % mod_1) + mod_1) % mod_1;
         long long hsh_b = (hsh[1][i] - ((hsh[1][i - m] * pw[1][m]) % mod_2) + mod_2) % mod_2;
-        
         if(hsh_a == hsh1 && hsh_b == hsh2)
             cnt++;
     }
