@@ -85,7 +85,7 @@ int main()
  
 	cout << C(n, k);
 
-  // finding all subsets of a set of n values
+    // finding all subsets of a set of n values
   
 	for(int i = 0; i < (1<<n); i++)
 	{
