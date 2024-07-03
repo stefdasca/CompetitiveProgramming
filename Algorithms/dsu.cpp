@@ -1,49 +1,66 @@
-// https://www.infoarena.ro/problema/disjoint
+// https://cses.fi/problemset/task/1676/
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+ 
 using namespace std;
-
-ifstream f("disjoint.in");
-ofstream g("disjoint.out");
-int n, m, tt[100002], sz[100002];
-
-int Find(int nod)
-{
-    if(tt[nod] == nod)
-        return nod;
-    return tt[nod] = Find(tt[nod]);
-}
-
-void Union(int a, int b)
-{
-    if(a == b)
-        return;
-    if(sz[a] >= sz[b])
-        sz[a] += sz[b], tt[b] = a;
-    else
-        sz[b] += sz[a], tt[a] = b;
-}
-int main()
-{
-    f >> n >> m;
-    for(int i = 1; i <= n; i++)
-    {
-        tt[i] = i;
-        sz[i] = 1;
-    }
-    for(int i = 1; i <= m; i++)
-    {
-        int tip, x, y;
-        f >> tip >> x >> y;
-        if(tip == 2)
-        {
-            if(Find(x) == Find(y))
-                g << "DA" << '\n';
-            else
-                g << "NU" << '\n';
+ 
+int maxi, cnt;
+ 
+class dsu{
+    private:
+        int n;
+        vector<int> parent, card; 
+    public:
+        void init (int sz) {
+            n = sz;
+            parent.resize(n+1);
+            card.resize(n+1);
+            for (int i = 1; i <= n; i++) {
+                parent[i] = i;
+                card[i] = 1;
+            }
         }
-        else
-            Union(Find(x), Find(y));
+        int Find (int x) {
+            if (parent[x] == x) {
+                return x;
+            }
+            return parent[x] = Find(parent[x]);
+        }
+        void Union (int a, int b) {
+            a = Find(a); b = Find(b);
+            if (a == b) {
+                return;
+            }
+            if (card[b] > card[a]) {
+                swap(a, b);
+            }
+            parent[b] = a;
+            card[a] += card[b];
+            cnt--;
+            maxi = max(maxi, card[a]);
+        }
+};
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n, m;
+    cin >> n >> m;
+    
+    dsu links; links.init(n);
+    
+    maxi = 1; 
+    cnt = n;
+    
+    for (int i = 0; i < m; i++) {
+        int a, b;
+        cin >> a >> b;
+        
+        links.Union(a, b);
+        
+        cout << cnt << " " << maxi << '\n';
     }
     return 0;
 }
