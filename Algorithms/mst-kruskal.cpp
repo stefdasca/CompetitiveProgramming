@@ -1,53 +1,80 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
 using namespace std;
-ifstream f("apm.in");
-ofstream g("apm.out");
-int n, m;
-int sz[200002], tt[200002];
-struct mch
-{
+
+struct edges {
     int a, b, c;
 };
-mch v[400002];
-bool cmp(mch a, mch b)
-{
+edges v[200001];
+
+bool cmp (edges a, edges b) {
     return a.c < b.c;
 }
-int Find(int nod)
-{
-    if(tt[nod] == nod)
-        return nod;
-    return tt[nod] = Find(tt[nod]);
-}
-void Union(int a, int b)
-{
-    if(sz[a] >= sz[b])
-        sz[a] += sz[b], tt[b] = a;
-    else
-        sz[b] += sz[a], tt[a] = b;
-}
-int sum = 0, q;
-pair<int, int> ans[200002];
-int main()
-{
-    f >> n >> m;
-    for(int i = 1; i <= m; ++i)
-        f >> v[i].a >> v[i].b >> v[i].c;
-    for(int i = 1; i <= n; ++i)
-        tt[i] = i, sz[i] = 1;
-    sort(v+1, v+m+1, cmp);
-    for(int i = 1; i <= m; ++i)
-    {
-        if(Find(v[i].a) != Find(v[i].b))
-        {
-            Union(Find(v[i].a), Find(v[i].b));
-            sum += v[i].c;
-            ans[++q] = make_pair(v[i].a, v[i].b);
+
+class dsu{
+    private:
+        int n;
+        vector<int> parent, card; 
+    public:
+        void init (int sz) {
+            n = sz;
+            parent.resize(n+1);
+            card.resize(n+1);
+            for (int i = 1; i <= n; i++) {
+                parent[i] = i;
+                card[i] = 1;
+            }
+        }
+        int Find (int x) {
+            if (parent[x] == x) {
+                return x;
+            }
+            return parent[x] = Find(parent[x]);
+        }
+        void Union (int a, int b) {
+            a = Find(a); b = Find(b);
+            if (a == b) {
+                return;
+            }
+            if (card[b] > card[a]) {
+                swap(a, b);
+            }
+            parent[b] = a;
+            card[a] += card[b];
+        }
+};
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n, m;
+    cin >> n >> m;
+    
+    for (int i = 0; i < m; i++) {
+        cin >> v[i].a >> v[i].b >> v[i].c;
+    }
+    sort(v, v + m, cmp);
+    
+    dsu links; links.init(n);
+    
+    long long cost = 0;
+    int mch = 0;
+    for (int i = 0; i < m; i++) {
+        if (links.Find(v[i].a) != links.Find(v[i].b)) {
+            cost += v[i].c;
+            mch++;
+            links.Union(v[i].a, v[i].b);
         }
     }
-    g << sum << '\n';
-    g << n-1 << '\n';
-    for(int i = 1; i <= q; ++i)
-        g << ans[i].first << " " << ans[i].second << '\n';
-    return 0; 
+    
+    if (mch == n-1) {
+        cout << cost << '\n';
+    }
+    else {
+        cout << "IMPOSSIBLE\n";
+    }
+    return 0;
 }
