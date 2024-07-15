@@ -1,73 +1,47 @@
-// https://www.infoarena.ro/problema/dijkstra
+// https://cses.fi/problemset/task/1671/
 
-#include<bits/stdc++.h>
-#pragma GCC optimize("O3")
-#define fi first
-#define se second
-#define pb push_back
-#define pf push_front
-#define mod 1000000007
-
+#include <bits/stdc++.h>
 using namespace std;
-
-typedef long long ll;
-
-ifstream f("dijkstra.in");
-ofstream g("dijkstra.out");
-int n, m, dist[50002];
-vector<pair<int, int> >v[50002];
-
-struct cmp
-{
-    bool operator()(pair<int, int> a, pair<int, int> b)
-    {
-        return a.first > b.first;
+ 
+int main() {
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<pair<int, int> > > graph(n+1); 
+    for (int i = 1; i <= m; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        graph[a].push_back({b, c});
     }
-};
-priority_queue<pair<int, int>, vector<pair<int, int> >, cmp>q;
-bool was[50002];
-void djk(int st)
-{
-    for(int i = 1; i <= n; ++i)
-        dist[i] = (1<<30);
-    dist[st] = 0;
-    q.push({0, st});
-    while(!q.empty())
-    {
-        pair<int, int> nod = q.top();
-        q.pop();
-        if(was[nod.second])
+    
+    vector<long long> cost(n+1, (1LL<<60));
+    vector<int> vis(n+1);
+    cost[1] = 0;
+    priority_queue<pair<long long, int> > s;
+    s.push({0, 1});
+    
+    while(!s.empty()) {
+        pair<long long, int> smallest = s.top();
+        s.pop();
+        
+        if (vis[smallest.second] == 1) {
             continue;
-        was[nod.second] = 1;
-        for(int i = 0; i < v[nod.second].size(); ++i)
-        {
-            pair<int, int> vecin = v[nod.second][i];
-            if(nod.first + vecin.second < dist[vecin.first])
-            {
-                dist[vecin.first] = nod.first + vecin.second;
-                q.push({dist[vecin.first], vecin.first});
+        }
+        vis[smallest.second] = 1;
+        
+        for (int i = 0; i < (int) graph[smallest.second].size(); i++) {
+            int nxt = graph[smallest.second][i].first;
+            int val = graph[smallest.second][i].second;
+            
+            if (-smallest.first + val < cost[nxt]) {
+                cost[nxt] = -smallest.first + val;
+                s.push({-cost[nxt], nxt});
             }
         }
     }
-}
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    f >> n >> m;
-    for(int i = 1; i <= m; ++i)
-    {
-        int a, b, c;
-        f >> a >> b >> c;
-        v[a].pb({b, c});
-    }
-    djk(1);
-    for(int i = 2; i <= n; ++i)
-    {
-        if(dist[i] == (1<<30))
-            dist[i] = 0;
-        g << dist[i] << " ";
-    }
-    g << '\n';
+    
+    for (int i = 1; i <= n; i++) {
+        cout << cost[i] << " ";
+    }  
     return 0;
 }
