@@ -20,7 +20,7 @@ long long solve (long long n) {
         return n+1;
     }
     
-    vector<int> d; // cifrele lui n
+    vector<int> d; // n's digits
     long long n2 = n;
     while(n2) {
         d.push_back(n2%10);
