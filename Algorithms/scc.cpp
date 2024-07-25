@@ -1,61 +1,66 @@
-// https://www.infoarena.ro/problema/ctc
+// https://cses.fi/problemset/task/1683/
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <stack>
+ 
 using namespace std;
-ifstream f("ctc.in");
-ofstream g("ctc.out");
-int n, m, nr;
-bool viz[100002], viz2[100002];
-vector<int>v[100002], tr[100002], ctc[100002];
-stack<int>s;
-void dfs(int nod)
-{
-    viz[nod] = 1;
-    for(int j = 0; j < v[nod].size(); ++j)
-    {
-        int vecin = v[nod][j];
-        if(!viz[vecin])
-            dfs(vecin);
+ 
+stack<int> s;
+ 
+void dfs (int node, vector<vector<int>> &v, vector<int> &vis) {
+    vis[node] = 1;
+    for (int j = 0; j < (int) v[node].size(); ++j) {
+        int nxt = v[node][j];
+        if (!vis[nxt]) {
+            dfs(nxt, v, vis);
+        }
     }
-    s.push(nod);
+    s.push(node);
 }
-void dfs2(int nod)
+void dfs2 (int node, int cnt, vector<vector<int>> &tr, vector<int> &vis2, vector<int> &scc)
 {
-    viz2[nod] = 1;
-    ctc[nr].push_back(nod);
-    for(int j = 0; j < tr[nod].size(); ++j)
-    {
-        int vecin = tr[nod][j];
-        if(!viz2[vecin])
-            dfs2(vecin);
+    vis2[node] = 1;
+    scc[node] = cnt;
+    for (int j = 0; j < (int) tr[node].size(); ++j) {
+        int nxt = tr[node][j];
+        if (!vis2[nxt]) {
+            dfs2(nxt, cnt, tr, vis2, scc);
+        }
     }
 }
-int main()
-{
-    f >> n >> m;
-    for(int i = 1; i <= m; ++i)
-    {
+ 
+int main() {
+    int n, m;
+    cin >> n >> m;
+    
+    vector<int> vis(n+1), vis2(n+1), scc(n+1);
+    vector<vector<int>> v(n+1), tr(n+1);
+    
+    for (int i = 1; i <= m; ++i) {
         int a, b;
-        f >> a >> b;
+        cin >> a >> b;
         v[a].push_back(b);
         tr[b].push_back(a);
     }
-    for(int i = 1; i <= n; ++i)
-        if(!viz[i])
-            dfs(i);
-    while(!s.empty())
-    {
-        int nod = s.top();
-        s.pop();
-        if(!viz2[nod])
-        {
-            ++nr;
-            dfs2(nod);
+    for (int i = 1; i <= n; ++i) {
+        if (!vis[i]) {
+            dfs(i, v, vis);
         }
     }
-    g << nr << '\n';
-    for(int i = 1; i <= nr; g << '\n', ++i)
-        for(int j = 0; j < ctc[i].size(); ++j)
-            g << ctc[i][j] << " ";
+    
+    int cnt = 0;
+    while (!s.empty()) {
+        int node = s.top();
+        s.pop();
+        if (!vis2[node]) {
+            ++cnt;
+            dfs2(node, cnt, tr, vis2, scc);
+        }
+    }
+    cout << cnt << '\n';
+    for (int i = 1; i <= n; ++i) {
+        cout << scc[i] << " ";
+    }
     return 0;
 }
