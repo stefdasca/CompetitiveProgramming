@@ -1,3 +1,6 @@
+/*
+    Same as https://kilonova.ro/problems/539 - https://github.com/stefdasca/statement-translator/blob/main/Kilonova/0500-0599/Processed_0539.md
+*/
 #include <algorithm>
 #include <iostream>
 #include <vector>
