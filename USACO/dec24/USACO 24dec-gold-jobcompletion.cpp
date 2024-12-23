@@ -6,6 +6,8 @@
 #include <vector>
 #include <set>
 
+#define int long long
+
 using namespace std;
 
 using ll = long long;
@@ -29,7 +31,7 @@ void solve() {
     }
 
     sort(v.begin(), v.end());
-    set <pair <int, int>> s;
+    multiset <pair <int, int>> s;
     vector <int> sch;
     for (int i = n - 1; i >= 0; --i) {
         int t = v[i].d;
@@ -53,7 +55,7 @@ void solve() {
 
     cout << sch.size() << "\n";
 }
-int main() {
+signed main() {
 
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
