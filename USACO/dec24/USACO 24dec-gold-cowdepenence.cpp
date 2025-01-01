@@ -1,4 +1,6 @@
 /*
+    USACO 2024 December Gold Contest - Cowdependence 
+    
     We will solve this independently for each distinct value 
     
     First, we know that if we have few distinct positions, we can run this fast by brute forcing the changing points and seeing when things actually start moving around.
