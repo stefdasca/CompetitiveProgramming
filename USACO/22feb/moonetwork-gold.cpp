@@ -1,12 +1,15 @@
-#include <bits/stdc++.h>
-
-using namespace std;
 /*
-    OBSERVATIE : daca pentru fiecare punct stim cele mai apropiate puncte (cu un X >= decat unde suntem) cu Y distinct atunci putem rezolva problema
-                cu KRUSKAL
-
+    if for a given point we know the closest points with a X coordinate larger than the current one and distinct Y, we can use Kruskal's algorithm to solve the problem. 
 */
-void solve() {
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
     int n;
     cin >> n;
     vector<pair<int, int>> a(n);
@@ -16,8 +19,10 @@ void solve() {
         vec[a[i].second].push_back({a[i].first, i});
     }
     vector<array<long long, 3>> edges;
-    for (auto &x : vec) sort(x.begin(), x.end());
-    // pentru fiecare punct consideram toate coordonatele Y si facem cautare binara incat sa gasim cel mai apropiat punct fata de punctul la care suntem cu Y ales
+    for (auto &x : vec) {
+        sort(x.begin(), x.end());
+    }
+    // for every point we consider all Y coordinates and binary search for the closest points to the current point and then we create the edge
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <= 10; ++j) {
             int l = 0, r = (int)vec[j].size() - 1;
@@ -38,7 +43,7 @@ void solve() {
             }
         }
     }
-    // aici facem kruskal
+    
     sort(edges.begin(), edges.end());
     vector<int> leader(n);
     vector<vector<int>> members(n);
@@ -62,13 +67,6 @@ void solve() {
             ans += edges[i][0];
         }
     }
-    cout << ans;
-}
-
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    solve();
+    cout << ans << '\n';
+    return 0;
 }
