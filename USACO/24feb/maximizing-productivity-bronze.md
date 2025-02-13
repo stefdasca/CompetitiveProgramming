@@ -18,7 +18,7 @@ The total complexity of this algorithm is $O(MAX + n + q)$, where $MAX$ is the h
 
 We will again precompute the values $c_i - t_i$ and sort this array. Now, for a given query, all we want to do is to binary search the smallest value in the array larger than $S$ and count how many such positions are there.
 
-Given that we have a sorting which takes $O(n \log n)$ and we use $O(\log n)$ operations per query, this solution should also be fast enough.
+Given that we have a sorting which takes $O(n \log \ n)$ and we use $O(\log \ n)$ operations per query, this solution should also be fast enough.
 
 ## Source codes
 
@@ -44,11 +44,11 @@ int main() {
     for (int i = 1; i <= n; i++) {
         cin >> t[i];
         if (c[i] - t[i] - 1 >= 0) {
-            ps[0]++, fr[c[i] - t[i]]--;
+            ps[0]++, fr[c[i] - t[i]]--; // we cover range [0, c[i] - t[i] - 1]
         }
     }
     
-    for (int i = 1; i <= 1000000; i++) {
+    for (int i = 1; i <= 1000000; i++) { // creating cummulative sums
         ps[i] = ps[i-1] + fr[i];
     }
     
