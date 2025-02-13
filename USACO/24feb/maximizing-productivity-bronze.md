@@ -24,7 +24,7 @@ The total complexity of this algorithm is $O(MAX + n + q)$, where $MAX$ is the h
 
 We will again precompute the values $c_i - t_i$ and sort this array. Now, for a given query, all we want to do is to binary search the smallest value in the array larger than $S$ and count how many such positions are there.
 
-Given that we have a sorting which takes $O(n \ \log \ n)$ and we use $O(\log \ n)$ operations per query, this solution should also be fast enough.
+Given that we have a sorting which takes $O(n \ \log \ n)$ and we use $O(\log n)$ operations per query, this solution should also be fast enough.
 
 ## Source codes
 
