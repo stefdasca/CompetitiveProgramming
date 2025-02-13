@@ -1,6 +1,7 @@
 # USACO 2024 February Contest Bronze Division - Maximizing Productivity
 
 Problem link: [here](https://usaco.org/index.php?page=viewproblem2&cpid=1397)
+
 Solution Author: [Stefan Dascalescu](https://stefdasca.ro/)
 
 ## Brute force ideas
