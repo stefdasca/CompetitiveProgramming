@@ -1,3 +1,8 @@
+# USACO 2024 February Contest Bronze Division - Maximizing Productivity
+
+Problem link: [here](https://usaco.org/index.php?page=viewproblem2&cpid=1397)
+Solution Author: [Stefan Dascalescu](https://stefdasca.ro/)
+
 ## Brute force ideas
 
 A slow but obvious solution consists of iterating for each query through the entire array and add 1 to the answer for every farm which closes down after Bessie decides to visit it. However, this won't work for the larger test cases as the complexity would be $O(n \cdot q)$.
