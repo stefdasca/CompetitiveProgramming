@@ -1,7 +1,13 @@
 /*
     solution code by Stefan Dascalescu
     
-    I will add the detailed writeup soon
+    Given that n is small, thinking at brute force solutions is natural, which is what I did too. Therefore, I have solve(i, j) which computes the minimum number of print statements to print values from ith to jth.
+
+    If there is some value x such that v[i] = v[i-x] for all i in range (i+x, j) within that range, we got a period and solve(i, j) can be reduced to solve(i, i+x-1).
+
+    We can also choose to split solve(i, j) in two and add up the answers. At the end, we consider the best option and check if solve(1, n) <= k.
+
+    https://www.youtube.com/watch?v=amp4yB3ykho
 
 */
 
