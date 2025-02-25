@@ -1,7 +1,13 @@
 /*
     solution code by Stefan Dascalescu
     
-    I will add the detailed writeup soon
+    First, you start with finding the construction assuming no moves are allowed, which can be done easily using a suffix maximum array. 
+    
+    A key observation is that it can be proven that you want to move one of the numbers from this construction somewhere to the left in order to potentially improve the sequence printed.
+    
+    When choosing, you want to go for the first one which would result in at least one more number being added to the answer.
+
+    video link: https://www.youtube.com/watch?v=szeIh8GRTHY
 
 */
 
