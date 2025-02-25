@@ -1,8 +1,13 @@
 /*
     solution code by Stefan Dascalescu
     
-    I will add the detailed writeup soon
+    At the beginning, you compute the answer for the entire grid. For a cell (i, j), the mirrored cells are (n-i+1, j), (i, n-i+1) and (n-i+1, n-j+1). 
+    
+    Therefore, for a group of 4 cells, you either make them all dots or all hashtags, whichever thing is more advantageous.
 
+    During an update, you change one cell and the easiest way to handle this is by undoing the number of operations for the group the flipped cell is at and you add the answer back based on the new value.
+
+    video link: https://www.youtube.com/watch?v=H4sG5wZGvrY
 */
 
 #include <iostream>
