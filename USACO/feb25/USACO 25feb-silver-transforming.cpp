@@ -1,14 +1,19 @@
 /*
     solution code by Stefan Dascalescu
+
+    This problem has a relatively standard math part (instead of going forwards, you go backwards and you can observe that the operations resemble those made during the GCD algorithm).
+
+    At a given point, we want to subtract from the bigger number as much as possible and then make sure that we can actually reach (a, b) from (c. d).
     
-    I will add the detailed writeup soon
+    There are a few cases which have to be handled as well, as shown in the source code by the comments attached below.
+    video link: https://www.youtube.com/watch?v=NuSVH45kxac
 
 */
 
 #include <iostream>
 using namespace std;
  
-long long gcd_ll (long long a, long long b) {
+long long gcd (long long a, long long b) {
     while (b > 0) {
         long long c = a%b;
         a = b;
@@ -28,7 +33,7 @@ int main(){
         cin >> a >> b >> c >> d;
  
         // target must not be larger than the start, also the gcd is invariant under these subtraction operations.
-        if (a > c || b > d || gcd_ll(c, d) != gcd_ll(a, b)) {
+        if (a > c || b > d || gcd(c, d) != gcd(a, b)) {
             cout << -1 << "\n";
             continue;
         }
