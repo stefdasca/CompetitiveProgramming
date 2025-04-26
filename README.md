@@ -1,5 +1,7 @@
 # CompetitiveProgramming
 
-Here are all my submissions since 1 Oct 2018 + some of the older submissions, from all the OJ where i'm active in 
+[My personal website](https://stefdasca.ro). Nowadays I am an international competitive programmer tutor, having helped 150+ students achieve top results at Olympiads and programming competitions such as IOI, USACO, ICPC, several National Olympiads and various other programming competitions, while also helping many students reach their dream goals. Besides, I have been writing solutions [for USACO](https://usaco-solutions.com) as well as creating the most complete collection of Romanian language resources, as you can see on the [RoAlgo Archive](https://edu.roalgo.ro).
 
-Stefan 
+Welcome to the GitHub repository where you can find all of my solutions to various Olympiad problems, during the time in which I worked under [Dr. Mostafa Saad's Online Free Supervision](https://codeforces.com/blog/entry/59131), with some extra bits and pieces as well. While I am no longer actively competing in programming contests, my students earn excellent results year after year and the work I did back in my active competing days has been instrumental towards reaching these goals. A lot of the solutions from here have comments and are written in a clean style.
+
+You can also find my templates for various algorithms [here](https://github.com/stefdasca/CompetitiveProgramming/tree/master/Algorithms). Should you have any suggestions or things I can improve, you can reach out using the website mentioned above.
